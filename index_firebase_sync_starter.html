@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ETL Auction V2</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      padding:30px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+      display:grid;
+      gap:20px;
+    }
+
+    .card{
+      background:#1e293b;
+      padding:20px;
+      border-radius:12px;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-top:10px;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+    }
+
+    button{
+      margin-top:15px;
+      padding:12px 20px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .display{
+      margin-top:15px;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .status{
+      margin-top:10px;
+      color:#38bdf8;
+    }
+
+    .sync-status {
+      max-width:900px;
+      margin:0 auto 20px auto;
+      background:#111827;
+      border:1px solid #334155;
+      border-radius:10px;
+      padding:12px 16px;
+      color:#cbd5e1;
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ETL Auction V2</h1>
+
+  <div class="sync-status" id="syncStatus">
+    Firebase: Not connected yet
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Current Player</h2>
+
+      <input 
+        type="text" 
+        id="playerInput"
+        placeholder="Enter player name"
+      />
+
+      <button id="updatePlayerBtn">
+        Update Player
+      </button>
+
+      <div class="display" id="playerDisplay">
+        No Player Selected
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Current Bid</h2>
+
+      <input 
+        type="number"
+        id="bidInput"
+        placeholder="Enter bid amount"
+      />
+
+      <button id="updateBidBtn">
+        Update Bid
+      </button>
+
+      <div class="display" id="bidDisplay">
+        ₹0
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Auction Status</h2>
+
+      <button id="soldBtn">
+        SOLD
+      </button>
+
+      <button id="unsoldBtn">
+        UNSOLD
+      </button>
+
+      <div class="status" id="statusDisplay">
+        Waiting...
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+
+  <script>
+
+    // -----------------------------
+    // FIREBASE CONFIG
+    // Replace these placeholder values with your Firebase web app config.
+    // -----------------------------
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyDNK5gxfLNLIdH8sCWjHZuxOmoznxqv9Jk",
+  authDomain: "etl-v2-cf6b1.firebaseapp.com",
+  databaseURL: "https://etl-v2-cf6b1-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "etl-v2-cf6b1",
+  storageBucket: "etl-v2-cf6b1.firebasestorage.app",
+  messagingSenderId: "678911930430",
+  appId: "1:678911930430:web:4e1f32ce983673bfdc216f"
+};
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    const auctionStateRef = database.ref("etlAuctionV2/auctionState");
+
+
+    // -----------------------------
+    // CENTRAL AUCTION STATE
+    // Firebase is now the source of truth.
+    // -----------------------------
+
+    let auctionState = {
+      currentPlayer: "",
+      currentBid: 0,
+      status: "Waiting"
+    };
+
+
+    // -----------------------------
+    // DOM REFERENCES
+    // -----------------------------
+
+    const playerInput = document.getElementById("playerInput");
+    const bidInput = document.getElementById("bidInput");
+
+    const updatePlayerBtn = document.getElementById("updatePlayerBtn");
+    const updateBidBtn = document.getElementById("updateBidBtn");
+
+    const soldBtn = document.getElementById("soldBtn");
+    const unsoldBtn = document.getElementById("unsoldBtn");
+
+    const playerDisplay = document.getElementById("playerDisplay");
+    const bidDisplay = document.getElementById("bidDisplay");
+    const statusDisplay = document.getElementById("statusDisplay");
+    const syncStatus = document.getElementById("syncStatus");
+
+
+    // -----------------------------
+    // UI RENDER FUNCTION
+    // -----------------------------
+
+    function renderUI() {
+      playerDisplay.textContent = auctionState.currentPlayer || "No Player Selected";
+      bidDisplay.textContent = `₹${auctionState.currentBid || 0}`;
+      statusDisplay.textContent = auctionState.status || "Waiting";
+    }
+
+
+    // -----------------------------
+    // WRITE TO FIREBASE
+    // -----------------------------
+
+    function updateAuctionState(updates) {
+      auctionStateRef.update(updates)
+        .then(() => {
+          syncStatus.textContent = "Firebase: Synced successfully";
+        })
+        .catch((error) => {
+          console.error("Firebase update failed:", error);
+          syncStatus.textContent = "Firebase: Sync failed - check console";
+        });
+    }
+
+
+    // -----------------------------
+    // READ FROM FIREBASE LIVE
+    // This listens for changes from any device.
+    // -----------------------------
+
+    auctionStateRef.on("value", (snapshot) => {
+      const data = snapshot.val();
+
+      if (data) {
+        auctionState = {
+          currentPlayer: data.currentPlayer || "",
+          currentBid: data.currentBid || 0,
+          status: data.status || "Waiting"
+        };
+      } else {
+        auctionStateRef.set(auctionState);
+      }
+
+      renderUI();
+      syncStatus.textContent = "Firebase: Connected and listening live";
+    }, (error) => {
+      console.error("Firebase listener failed:", error);
+      syncStatus.textContent = "Firebase: Listener failed - check console";
+    });
+
+
+    // -----------------------------
+    // EVENT LISTENERS
+    // -----------------------------
+
+    updatePlayerBtn.addEventListener("click", () => {
+      updateAuctionState({
+        currentPlayer: playerInput.value.trim()
+      });
+    });
+
+    updateBidBtn.addEventListener("click", () => {
+      updateAuctionState({
+        currentBid: Number(bidInput.value) || 0
+      });
+    });
+
+    soldBtn.addEventListener("click", () => {
+      updateAuctionState({
+        status: "SOLD"
+      });
+    });
+
+    unsoldBtn.addEventListener("click", () => {
+      updateAuctionState({
+        status: "UNSOLD"
+      });
+    });
+
+
+    // -----------------------------
+    // INITIAL RENDER
+    // -----------------------------
+
+    renderUI();
+
+  </script>
+
+</body>
+</html>
