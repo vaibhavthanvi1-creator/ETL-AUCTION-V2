@@ -283,10 +283,14 @@
     }
 
     .tab-btn {
+      align-items: center;
       background: rgba(8, 21, 48, 0.92);
       border: 1px solid rgba(244, 196, 76, 0.24);
       color: #f7e4a4;
+      display: inline-flex;
+      justify-content: center;
       min-width: 120px;
+      text-align: center;
     }
 
     .tab-btn.active {
@@ -300,20 +304,102 @@
       display: none;
     }
 
-    body.public-auction .tabs .tab-btn:not(#homeTabBtn),
+    .tabs #publicAuctionTabBtn,
+    .tabs #publicTeamsTabBtn {
+      display: none;
+    }
+
+    body.public-auction .tabs #auctionTabBtn,
+    body.public-auction .tabs #registrationTabBtn,
+    body.public-auction .tabs #teamsTabBtn,
+    body.public-auction .tabs #playersTabBtn,
+    body.public-auction .tabs #settingsTabBtn,
+    body.public-teams .tabs #auctionTabBtn,
+    body.public-teams .tabs #registrationTabBtn,
+    body.public-teams .tabs #teamsTabBtn,
+    body.public-teams .tabs #playersTabBtn,
+    body.public-teams .tabs #settingsTabBtn,
     body.registration-page .tabs .tab-btn:not(#homeTabBtn) {
       display: none;
+    }
+
+    body.public-auction .tabs #publicAuctionTabBtn,
+    body.public-auction .tabs #publicTeamsTabBtn,
+    body.public-teams .tabs #publicAuctionTabBtn,
+    body.public-teams .tabs #publicTeamsTabBtn {
+      display: inline-flex;
     }
 
     body.public-auction .auction-control-panel {
       display: none;
     }
 
+    body.public-teams .team-player-row button {
+      display: none;
+    }
+
+    body.public-auction .live-board {
+      min-height: 430px;
+    }
+
     body.public-auction .main {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       grid-template-areas:
-        "live pulse"
+        "live live"
         "results pulse"
         "publicplayers publicplayers";
+    }
+
+    .recent-results-left h2,
+    .auction-pulse-panel h2 {
+      display: flex;
+      font-size: 18px;
+      justify-content: center;
+      box-sizing: border-box;
+      margin: 0;
+      flex: 0 0 44px;
+      min-height: 44px;
+      width: 100%;
+    }
+
+    body.public-auction .recent-results-left,
+    body.public-auction .auction-pulse-panel {
+      align-self: start;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    body.public-auction .auction-pulse-panel .meta-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    body.public-auction .auction-pulse-panel .metric {
+      min-height: 72px;
+      padding: 9px;
+    }
+
+    body.public-auction .auction-pulse-panel .metric span {
+      font-size: 10px;
+      line-height: 1.25;
+    }
+
+    body.public-auction .auction-pulse-panel .metric strong {
+      font-size: 17px;
+    }
+
+    body.public-auction .auction-pulse-panel .pulse-detail {
+      max-height: 260px;
+      padding: 10px;
+    }
+
+    body.public-auction .recent-results-left .history {
+      max-height: 360px;
+    }
+
+    body.public-auction .auction-pulse-panel .pulse-row {
+      gap: 6px;
+      padding: 7px;
     }
 
     body.admin-page #registrationTabBtn {
@@ -322,11 +408,11 @@
 
     .home-view {
       width: min(1220px, calc(100% - 32px));
-      margin: 34px auto;
+      margin: 28px auto 16px;
       align-content: start;
-      gap: 28px;
+      gap: 22px;
       justify-items: center;
-      min-height: calc(100vh - 80px);
+      min-height: auto;
       padding-top: 8px;
     }
 
@@ -468,10 +554,28 @@
 
     .live-board__header h2,
     .panel h2 {
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255, 223, 122, 0.14), rgba(183, 121, 15, 0.08));
+      border: 1px solid rgba(244, 196, 76, 0.26);
+      border-radius: 8px;
+      box-shadow: 0 0 14px rgba(244, 196, 76, 0.14);
       color: #ffdf7a;
+      display: inline-flex;
       font-size: 18px;
       letter-spacing: 0;
+      min-height: 38px;
+      padding: 7px 12px;
       text-transform: uppercase;
+    }
+
+    .live-board__header .live-title {
+      background: linear-gradient(180deg, #f97373, #b91c1c 54%, #7f1d1d);
+      border: 1px solid rgba(254, 202, 202, 0.66);
+      border-radius: 999px;
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.62), 0 0 24px rgba(239, 68, 68, 0.34);
+      color: #fff;
+      min-height: auto;
+      padding: 8px 15px;
     }
 
     .status-badge {
@@ -818,15 +922,7 @@
     }
 
     .pulse-detail.sold-list .pulse-row {
-      grid-template-columns: 0.7fr 1.2fr 1fr auto;
-    }
-
-    .pulse-detail.admin-actions .pulse-row {
-      grid-template-columns: minmax(0, 1fr) auto auto auto;
-    }
-
-    .pulse-detail.sold-list.admin-actions .pulse-row {
-      grid-template-columns: 0.7fr 1.2fr 1fr auto auto;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .pulse-header {
@@ -836,10 +932,11 @@
 
     .pulse-header span,
     .pulse-header strong {
-      color: #071229;
+      color: #071229 !important;
     }
 
     .pulse-row strong {
+      color: #ffdf7a;
       overflow-wrap: anywhere;
     }
 
@@ -939,11 +1036,16 @@
     }
 
     .team-card__name {
+      background: linear-gradient(180deg, rgba(255, 223, 122, 0.14), rgba(183, 121, 15, 0.08));
+      border: 1px solid rgba(244, 196, 76, 0.26);
+      border-radius: 8px;
+      box-shadow: 0 0 14px rgba(244, 196, 76, 0.14);
       color: #ffdf7a;
       font-size: 22px;
       font-weight: 900;
       line-height: 1.08;
       overflow-wrap: anywhere;
+      padding: 10px 12px;
       text-transform: uppercase;
     }
 
@@ -1237,6 +1339,29 @@
       gap: 14px;
     }
 
+    .registration-board,
+    .registration-board label,
+    .registration-board .choice-list strong,
+    .registration-board .field-help span {
+      color: #ffdf7a;
+    }
+
+    .registration-board input,
+    .registration-board select {
+      color: #ffdf7a;
+    }
+
+    .required-star {
+      color: #ff3b3b;
+      font-weight: 900;
+      margin-left: 4px;
+    }
+
+    .required-missing {
+      border-color: rgba(239, 68, 68, 0.9) !important;
+      box-shadow: 0 0 16px rgba(239, 68, 68, 0.28) !important;
+    }
+
     .google-form-card {
       background:
         linear-gradient(180deg, rgba(255, 223, 122, 0.08), transparent 34%),
@@ -1323,6 +1448,28 @@
       min-height: 18px;
     }
 
+    .field-help {
+      border: 1px solid rgba(244, 196, 76, 0.16);
+      border-radius: 8px;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 8px;
+      padding: 10px;
+    }
+
+    .field-help img {
+      border-radius: 8px;
+      max-height: 130px;
+      max-width: 180px;
+      object-fit: contain;
+    }
+
+    .field-help span {
+      color: #dce8fb;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
     .player-list {
       display: grid;
       gap: 8px;
@@ -1337,7 +1484,7 @@
       border: 1px solid rgba(244, 196, 76, 0.18);
       border-radius: 8px;
       display: grid;
-      grid-template-columns: 72px 90px minmax(160px, 1fr) 80px 140px auto;
+      grid-template-columns: 90px 120px minmax(220px, 1fr) 100px 160px 140px;
       gap: 10px;
       padding: 10px;
     }
@@ -1386,6 +1533,10 @@
       padding: 0 10px;
     }
 
+    .player-list-row--admin {
+      grid-template-columns: var(--player-admin-columns, 72px 90px minmax(160px, 1fr) 80px 140px auto);
+    }
+
     .player-subtabs {
       display: flex;
       flex-wrap: wrap;
@@ -1426,7 +1577,11 @@
     }
 
     .custom-field-row {
-      grid-template-columns: minmax(170px, 1fr) 170px minmax(180px, 1fr) 190px auto;
+      grid-template-columns: repeat(3, minmax(170px, 1fr));
+    }
+
+    .field-setting-hidden {
+      display: none;
     }
 
     .base-field-row {
@@ -1647,18 +1802,32 @@
       background: rgba(2, 6, 23, 0.5);
     }
 
-    .sold-celebration__text {
+    .sold-celebration.registration-success {
+      background: rgba(2, 6, 23, 0.46);
+    }
+
+    .sold-celebration__text,
+    .registration-success__text {
       border: 3px solid rgba(255, 224, 138, 0.92);
       border-radius: 8px;
       box-shadow: 0 0 24px rgba(244, 196, 76, 0.74), 0 0 90px rgba(244, 196, 76, 0.38);
       color: #ffdf7a;
-      font-size: clamp(78px, 15vw, 180px);
+      font-size: clamp(44px, 9vw, 118px);
       font-weight: 900;
       line-height: 1;
       padding: 20px 42px;
+      text-align: center;
       text-shadow: 0 0 22px rgba(244, 196, 76, 0.8);
       transform: rotate(-5deg);
       animation: soldPop 700ms ease-out both;
+    }
+
+    .sold-celebration__text {
+      font-size: clamp(78px, 15vw, 180px);
+    }
+
+    .registration-success__text {
+      transform: rotate(0deg);
     }
 
     .unsold-animation {
@@ -1738,10 +1907,11 @@
       }
 
       body.public-auction .main {
+        grid-template-columns: 1fr;
         grid-template-areas:
           "live"
-          "pulse"
           "results"
+          "pulse"
           "publicplayers";
       }
 
@@ -1838,6 +2008,8 @@
 
     <nav class="tabs" aria-label="Application tabs">
       <button class="tab-btn active" id="homeTabBtn" data-tab="home">Home</button>
+      <button class="tab-btn" id="publicAuctionTabBtn" data-tab="viewAuction">Live Auction</button>
+      <button class="tab-btn" id="publicTeamsTabBtn" data-tab="publicTeams">Team Overview</button>
       <button class="tab-btn" id="auctionTabBtn" data-tab="auction">Admin Home</button>
       <button class="tab-btn" id="registrationTabBtn" data-tab="registration">Player Registration Form</button>
       <button class="tab-btn" id="teamsTabBtn" data-tab="teams">Team Overview</button>
@@ -1886,18 +2058,18 @@
             <div class="player-detail"><span>Serial no.</span><strong id="playerSerialDisplay">-</strong></div>
             <div class="player-detail"><span>Age</span><strong id="playerAgeDisplay">-</strong></div>
             <div class="player-detail"><span>Role</span><strong id="playerRoleDisplay">-</strong></div>
-            <div class="player-detail"><span>Base price</span><strong id="playerBasePriceDisplay">INR 1,000</strong></div>
+            <div class="player-detail"><span>Base price</span><strong id="playerBasePriceDisplay">1,000</strong></div>
           </div>
 
           <div class="bid-line">
             <div>
               <div class="stage-label">Current bid</div>
-              <div class="bid-amount" id="bidDisplay">INR 0</div>
+              <div class="bid-amount" id="bidDisplay">0</div>
             </div>
             <div class="sold-to">
               <span>Team</span>
               <strong id="teamDisplay">Not assigned</strong>
-              <div class="budget-display" id="teamBudgetDisplay">Budget: INR 100,000</div>
+              <div class="budget-display" id="teamBudgetDisplay">Budget: 100,000</div>
             </div>
           </div>
         </div>
@@ -1946,7 +2118,7 @@
             <button class="btn-neutral" data-increment="5000">+5K</button>
           </div>
           <div class="action-grid">
-            <button class="btn-neutral deduct-btn" id="deductBidBtn" title="Deduct INR 1,000">↶ -1K</button>
+            <button class="btn-neutral deduct-btn" id="deductBidBtn" title="Deduct 1,000">↶ -1K</button>
             <button class="btn-danger" id="soldBtn">Mark Sold</button>
             <button class="btn-neutral" id="unsoldBtn">Mark Unsold</button>
             <button class="btn-neutral" id="nextPlayerBtn">Next Player</button>
@@ -1956,7 +2128,7 @@
         <section class="panel old-bid-controls">
           <h2>Bid Controls</h2>
           <div class="quick-bids">
-            <button class="btn-neutral deduct-btn" id="oldDeductBidBtn" title="Deduct INR 1,000">↶</button>
+            <button class="btn-neutral deduct-btn" id="oldDeductBidBtn" title="Deduct 1,000">↶</button>
             <button class="btn-neutral" data-increment="1000">+1000</button>
             <button class="btn-neutral" data-increment="2000">+2000</button>
             <button class="btn-neutral" data-increment="5000">+5000</button>
@@ -2013,6 +2185,10 @@
 
       <section class="panel public-player-list-panel" aria-label="View only player list">
         <h2>Player List</h2>
+        <div class="team-download-actions">
+          <button class="btn-neutral" id="downloadPublicPlayersExcelBtn">Download Players Excel</button>
+          <button class="btn-neutral" id="downloadPublicPlayersPdfBtn">Download Players PDF</button>
+        </div>
         <div class="player-list" id="publicPlayerList">
           <div class="empty">No players added yet.</div>
         </div>
@@ -2034,24 +2210,24 @@
 
     <main class="settings-layout view" id="registrationView">
       <section class="panel registration-board" aria-label="Player registration form">
-        <h2>PLAYER REGISTRATION FORM</h2>
+        <h2>ETL X PLAYER REGISTRATION FORM</h2>
         <div class="player-form-intro" id="playerFormIntro"></div>
         <div class="google-form-card">
           <div class="registration-form-grid">
             <label data-base-player-field="serial">
-              Serial no.
-              <input type="text" id="playerSerialField" placeholder="1" autocomplete="off" />
+              Serial no.<span class="required-star">*</span>
+              <input type="text" id="playerSerialField" placeholder="1" autocomplete="off" readonly />
             </label>
             <label data-base-player-field="name">
-              Player name
+              Player name.<span class="required-star">*</span>
               <input type="text" id="playerNameField" placeholder="Player name" autocomplete="off" />
             </label>
             <label data-base-player-field="age">
-              Age
+              Age.<span class="required-star">*</span>
               <input type="text" id="playerAgeField" placeholder="Age" autocomplete="off" />
             </label>
             <label data-base-player-field="role">
-              Role
+              Role.<span class="required-star">*</span>
               <select id="playerRoleField">
                 <option value="Batsman">Batsman</option>
                 <option value="Bowler">Bowler</option>
@@ -2060,7 +2236,7 @@
               </select>
             </label>
             <label data-base-player-field="photo">
-              Upload picture
+              Upload picture.<span class="required-star">*</span>
               <input type="file" id="playerPhotoFileField" accept="image/*" />
             </label>
           </div>
@@ -2075,10 +2251,10 @@
     </main>
 
     <main class="settings-layout view" id="settingsView">
-      <section class="settings-group open">
+      <section class="settings-group">
         <div class="settings-group__title">
           <span>Tournament Branding</span>
-          <button class="settings-toggle" type="button" aria-expanded="true">-</button>
+          <button class="settings-toggle" type="button" aria-expanded="false">+</button>
         </div>
         <div class="settings-panel">
           <label>
@@ -2171,7 +2347,7 @@
 
       <section class="settings-group">
         <div class="settings-group__title">
-          <span>Designer Details</span>
+          <span>Footer Settings</span>
           <button class="settings-toggle" type="button" aria-expanded="false">+</button>
         </div>
         <div class="settings-panel">
@@ -2223,41 +2399,6 @@
           </div>
           <div class="actions">
             <button class="btn-primary" id="saveAdminCredentialsBtn">Save Login</button>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <main class="settings-layout view" id="playersView">
-      <section class="settings-group">
-        <div class="settings-group__title">
-          <span>Upload Player List</span>
-          <button class="settings-toggle" type="button" aria-expanded="false">+</button>
-        </div>
-        <div class="settings-panel">
-          <div class="player-import-grid">
-            <label>
-              Upload CSV / Excel
-              <input type="file" id="playerDataFile" accept=".csv,.xlsx,.xls" />
-            </label>
-            <button class="btn-primary" id="importPlayerFileBtn">Import File</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="settings-group">
-        <div class="settings-group__title">
-          <span>Player List</span>
-          <button class="settings-toggle" type="button" aria-expanded="false">+</button>
-        </div>
-        <div class="settings-panel">
-          <div class="team-download-actions">
-            <button class="btn-neutral" id="downloadPlayersExcelBtn">Download Players Excel</button>
-            <button class="btn-neutral" id="downloadPlayersPdfBtn">Download Players PDF</button>
-          </div>
-          <div class="player-list" id="playerRegistryList">
-            <div class="empty">No players added yet.</div>
           </div>
         </div>
       </section>
@@ -2325,6 +2466,42 @@
           </div>
         </div>
       </section>
+
+    </main>
+
+    <main class="settings-layout view" id="playersView">
+      <section class="settings-group">
+        <div class="settings-group__title">
+          <span>Upload Player List</span>
+          <button class="settings-toggle" type="button" aria-expanded="false">+</button>
+        </div>
+        <div class="settings-panel">
+          <div class="player-import-grid">
+            <label>
+              Upload CSV / Excel
+              <input type="file" id="playerDataFile" accept=".csv,.xlsx,.xls" />
+            </label>
+            <button class="btn-primary" id="importPlayerFileBtn">Import File</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-group">
+        <div class="settings-group__title">
+          <span>Player List</span>
+          <button class="settings-toggle" type="button" aria-expanded="false">+</button>
+        </div>
+        <div class="settings-panel">
+          <div class="team-download-actions">
+            <button class="btn-neutral" id="downloadPlayersExcelBtn">Download Players Excel</button>
+            <button class="btn-neutral" id="downloadPlayersPdfBtn">Download Players PDF</button>
+          </div>
+          <div class="player-list" id="playerRegistryList">
+            <div class="empty">No players added yet.</div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="designer-footer">
@@ -2489,6 +2666,8 @@
     const playersView = document.getElementById("playersView");
     const teamsView = document.getElementById("teamsView");
     const homeTabBtn = document.getElementById("homeTabBtn");
+    const publicAuctionTabBtn = document.getElementById("publicAuctionTabBtn");
+    const publicTeamsTabBtn = document.getElementById("publicTeamsTabBtn");
     const auctionTabBtn = document.getElementById("auctionTabBtn");
     const registrationTabBtn = document.getElementById("registrationTabBtn");
     const teamsTabBtn = document.getElementById("teamsTabBtn");
@@ -2567,6 +2746,8 @@
     const downloadTeamsPdfBtn = document.getElementById("downloadTeamsPdfBtn");
     const downloadPlayersExcelBtn = document.getElementById("downloadPlayersExcelBtn");
     const downloadPlayersPdfBtn = document.getElementById("downloadPlayersPdfBtn");
+    const downloadPublicPlayersExcelBtn = document.getElementById("downloadPublicPlayersExcelBtn");
+    const downloadPublicPlayersPdfBtn = document.getElementById("downloadPublicPlayersPdfBtn");
     const soldCelebration = document.getElementById("soldCelebration");
     let pulseSoldSort = "latest";
     const basePlayerFields = [
@@ -2578,7 +2759,7 @@
     ];
 
     function money(value) {
-      return `INR ${Number(value || 0).toLocaleString("en-IN")}`;
+      return Number(value || 0).toLocaleString("en-IN");
     }
 
     function cleanHistory(history) {
@@ -2637,19 +2818,44 @@
     }
 
     function completedPlayerSerials(history = auctionState.history) {
-      return new Set(cleanHistory(history).map((item) => String(item.playerNumber || "").trim().toLowerCase()).filter(Boolean));
+      return new Set(cleanHistory(history)
+        .filter((item) => item.status === "SOLD" || item.status === "UNSOLD")
+        .map((item) => String(item.playerNumber || "").trim().toLowerCase())
+        .filter(Boolean));
+    }
+
+    function latestHistoryItemsBySerial(history = auctionState.history) {
+      const latestBySerial = new Map();
+      cleanHistory(history).forEach((item) => {
+        const serial = String(item.playerNumber || "").trim().toLowerCase();
+        if (serial) latestBySerial.set(serial, item);
+      });
+      return [...latestBySerial.values()];
     }
 
     function randomRemainingPlayer(history = auctionState.history) {
-      const completed = completedPlayerSerials(history);
+      const cleanAuctionHistory = cleanHistory(history);
+      const completed = completedPlayerSerials(cleanAuctionHistory);
       const currentSerial = String(auctionState.currentPlayerNumber || "").trim().toLowerCase();
-      const remaining = cleanPlayers(auctionState.players).filter((player) => {
+      const players = cleanPlayers(auctionState.players);
+      const remaining = players.filter((player) => {
         const serial = String(player.serial || "").trim().toLowerCase();
         return serial && !completed.has(serial) && serial !== currentSerial;
       });
 
-      if (!remaining.length) return null;
-      return remaining[Math.floor(Math.random() * remaining.length)];
+      if (remaining.length) return remaining[Math.floor(Math.random() * remaining.length)];
+
+      const latestBySerial = cleanAuctionHistory.reduce((nextLatest, item) => {
+        const serial = String(item.playerNumber || "").trim().toLowerCase();
+        if (serial) nextLatest.set(serial, item.status);
+        return nextLatest;
+      }, new Map());
+      const availableUnsoldSerials = new Set([...latestBySerial.entries()]
+        .filter(([serial, status]) => status === "UNSOLD" && serial && serial !== currentSerial)
+        .map(([serial]) => serial));
+      const unsoldPlayers = players.filter((player) => availableUnsoldSerials.has(String(player.serial || "").trim().toLowerCase()));
+      if (!unsoldPlayers.length) return null;
+      return unsoldPlayers[Math.floor(Math.random() * unsoldPlayers.length)];
     }
 
     function loadPlayerForAuction(player) {
@@ -2730,7 +2936,9 @@
             label: String(label || "").trim(),
             type,
             options: Array.isArray(field.options) ? field.options.map((option) => String(option || "").trim()).filter(Boolean) : [],
-            multiple: field.multiple !== false
+            multiple: field.multiple !== false,
+            helpText: String(field.helpText || "").trim(),
+            helpImage: String(field.helpImage || "").trim()
           };
         }).filter((field) => field.label)
         : [];
@@ -2838,6 +3046,16 @@
         .replace(/'/g, "&#039;");
     }
 
+    function withFullStop(value) {
+      const text = String(value || "").trim();
+      if (!text) return "";
+      return /[.?!:]$/.test(text) ? text : `${text}.`;
+    }
+
+    function requiredLabel(value) {
+      return `${escapeHtml(withFullStop(value))}<span class="required-star">*</span>`;
+    }
+
     function safeImage(value) {
       const image = String(value || "");
       if (image.startsWith("data:image/")) return image;
@@ -2853,18 +3071,93 @@
     }
 
     function clearPlayerRegistryForm() {
-      playerSerialField.value = nextPlayerSerial();
+      delete playerSerialField.dataset.editingSerial;
+      refreshRegistrationSerial();
       playerNameField.value = "";
       playerAgeField.value = "";
       playerRoleField.value = "All-Rounder";
       playerPhotoFileField.value = "";
+      delete playerPhotoFileField.dataset.existingPhoto;
       playerCustomFieldsForm.querySelectorAll("[data-player-extra-field]").forEach((input) => {
+        delete input.dataset.existingPhoto;
         if (input.type === "checkbox" || input.type === "radio") {
           input.checked = false;
         } else {
           input.value = "";
         }
       });
+      clearRequiredHighlights();
+    }
+
+    function refreshRegistrationSerial() {
+      if (playerSerialField.dataset.editingSerial) return;
+      playerSerialField.value = nextPlayerSerial();
+    }
+
+    function clearRequiredHighlights() {
+      registrationView.querySelectorAll(".required-missing").forEach((element) => {
+        element.classList.remove("required-missing");
+      });
+    }
+
+    function guideToRequiredField(element) {
+      element.classList.add("required-missing");
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      window.setTimeout(() => {
+        if (typeof element.focus === "function") element.focus();
+      }, 350);
+    }
+
+    function validatePlayerRegistrationForm() {
+      clearRequiredHighlights();
+      const baseChecks = [
+        { visible: isBaseFieldVisible("serial"), element: playerSerialField, filled: Boolean(playerSerialField.value.trim()) },
+        { visible: isBaseFieldVisible("name"), element: playerNameField, filled: Boolean(playerNameField.value.trim()) },
+        { visible: isBaseFieldVisible("age"), element: playerAgeField, filled: Boolean(playerAgeField.value.trim()) },
+        { visible: isBaseFieldVisible("role"), element: playerRoleField, filled: Boolean(playerRoleField.value) },
+        {
+          visible: isBaseFieldVisible("photo"),
+          element: playerPhotoFileField,
+          filled: Boolean(playerPhotoFileField.files?.length || playerPhotoFileField.dataset.existingPhoto)
+        }
+      ];
+
+      for (const check of baseChecks) {
+        if (check.visible && !check.filled) {
+          guideToRequiredField(check.element);
+          return false;
+        }
+      }
+
+      for (const field of cleanPlayerFields(auctionState.playerFields)) {
+        const inputs = Array.from(playerCustomFieldsForm.querySelectorAll("[data-player-extra-field]"))
+          .filter((fieldInput) => fieldInput.dataset.playerExtraField === field.key);
+        const firstInput = inputs[0];
+        if (!firstInput) continue;
+
+        if (field.type === "checkbox") {
+          if (!inputs.some((input) => input.checked)) {
+            guideToRequiredField(firstInput.closest(".choice-list") || firstInput);
+            return false;
+          }
+          continue;
+        }
+
+        if (field.type === "photo") {
+          if (!firstInput.files?.length && !firstInput.dataset.existingPhoto) {
+            guideToRequiredField(firstInput);
+            return false;
+          }
+          continue;
+        }
+
+        if (!firstInput.value.trim()) {
+          guideToRequiredField(firstInput);
+          return false;
+        }
+      }
+
+      return true;
     }
 
     function applyBaseFieldVisibility() {
@@ -3027,12 +3320,10 @@
 
     function renderHistory() {
       const history = cleanHistory(auctionState.history)
-        .filter((item) => item.status === "SOLD")
         .slice()
-        .reverse()
-        .slice(0, 5);
+        .reverse();
       if (!history.length) {
-        historyList.innerHTML = '<div class="empty">No purchases yet.</div>';
+        historyList.innerHTML = '<div class="empty">No auction results yet.</div>';
         return;
       }
 
@@ -3043,7 +3334,7 @@
         const player = escapeHtml(item.player || "Unnamed player");
         const team = escapeHtml(item.team || "No team");
         const label = escapeHtml(status);
-        const resultLine = status === "UNSOLD" ? "Unsold" : `${team} - ${money(item.bid)}`;
+        const resultLine = status === "UNSOLD" ? "Unsold" : `Sold to ${team} - ${money(item.bid)}`;
         return `
           <div class="history-row">
             <div>
@@ -3065,7 +3356,7 @@
       const completedSerials = completedPlayerSerials(history);
       playersCount.textContent = players.length || history.length + (hasCurrentPlayer ? 1 : 0);
       soldCount.textContent = history.filter((item) => item.status === "SOLD").length;
-      unsoldCount.textContent = history.filter((item) => item.status === "UNSOLD").length;
+      unsoldCount.textContent = latestHistoryItemsBySerial(history).filter((item) => item.status === "UNSOLD").length;
       remainingCount.textContent = players.length
         ? players.filter((player) => !completedSerials.has(String(player.serial).trim().toLowerCase())).length
         : hasCurrentPlayer ? "1" : "0";
@@ -3131,7 +3422,7 @@
         });
 
         const registeredSerials = new Set(players.map((player) => String(player.serial || "").trim().toLowerCase()).filter(Boolean));
-        const extraHistory = history
+        const extraHistory = latestHistoryItemsBySerial(history)
           .filter((item) => !registeredSerials.has(String(item.playerNumber || "").trim().toLowerCase()))
           .map((item) => ({ ...item, id: `history:${item.id}` }));
         const allItems = [...registryItems, ...extraHistory];
@@ -3142,8 +3433,9 @@
         return allItems;
       }
 
-      if (category === "sold") return history.filter((item) => item.status === "SOLD");
-      if (category === "unsold") return history.filter((item) => item.status === "UNSOLD");
+      const latestHistoryItems = latestHistoryItemsBySerial(history);
+      if (category === "sold") return latestHistoryItems.filter((item) => item.status === "SOLD");
+      if (category === "unsold") return latestHistoryItems.filter((item) => item.status === "UNSOLD");
       if (category === "remaining") return currentItem;
       return [...history, ...currentItem];
     }
@@ -3156,7 +3448,6 @@
     }
 
     function renderPulseDetail(category = "all") {
-      const allowPulseDelete = document.body.classList.contains("admin-page");
       const items = category === "sold" && pulseSoldSort === "highest"
         ? pulseItems(category).slice().sort((a, b) => (Number(b.bid) || 0) - (Number(a.bid) || 0))
         : pulseItems(category).slice().reverse();
@@ -3169,13 +3460,12 @@
               <strong>${escapeHtml(item.player || "Unnamed player")}</strong>
               <span>${escapeHtml(item.team || "No team")}</span>
               <span>${money(item.bid)}</span>
-              ${allowPulseDelete ? `<button class="btn-danger" data-delete-pulse-key="${escapeHtml(item.id)}">Delete</button>` : ""}
             </div>
           `).join("")
           : '<div class="empty">No players have been sold yet.</div>';
 
         pulseDetail.classList.add("active", "sold-list");
-        pulseDetail.classList.toggle("admin-actions", allowPulseDelete);
+        pulseDetail.classList.remove("admin-actions");
         pulseDetail.innerHTML = `
           <h3>${escapeHtml(pulseTitle(category))}</h3>
           <div class="sold-list-actions">
@@ -3187,7 +3477,6 @@
             <strong>Name</strong>
             <span>Team</span>
             <span>Price</span>
-            ${allowPulseDelete ? "<span>Action</span>" : ""}
           </div>
           ${rows}
         `;
@@ -3195,17 +3484,16 @@
       }
 
       pulseDetail.classList.remove("sold-list");
-      pulseDetail.classList.toggle("admin-actions", allowPulseDelete);
+      pulseDetail.classList.remove("admin-actions");
       const rows = items.length
         ? items.map((item) => {
-          const isUnsold = item.status === "UNSOLD";
-          const priceMarkup = isUnsold ? "" : `<span>${money(item.bid)}</span>`;
+          const showPrice = category === "all" && item.status === "SOLD";
+          const priceMarkup = showPrice ? `<span>${money(item.bid)}</span>` : "";
           return `
             <div class="pulse-row">
               <strong>${escapeHtml(item.playerNumber || "-")} - ${escapeHtml(item.player || "Unnamed player")}</strong>
               ${priceMarkup}
               <span>${escapeHtml(item.status || "")}</span>
-              ${allowPulseDelete ? `<button class="btn-danger" data-delete-pulse-key="${escapeHtml(item.id)}">Delete</button>` : ""}
             </div>
           `;
         }).join("")
@@ -3229,7 +3517,7 @@
         <div class="player-list-row header">
           <span>Picture</span>
           <span>Serial No.</span>
-          <span>Player</span>
+          <span>Name of Player</span>
           <span>Age</span>
           <span>Role</span>
           <span>Status</span>
@@ -3284,7 +3572,7 @@
             <div class="team-player-row">
               <strong>${escapeHtml(player.playerNumber || "-")} - ${escapeHtml(player.player || "Unnamed player")}</strong>
               <span>${money(player.bid)}</span>
-              <button class="btn-danger" data-delete-player-index="${player.historyIndex}">Delete</button>
+              ${document.body.classList.contains("admin-page") ? `<button class="btn-danger" data-delete-player-index="${player.historyIndex}">Delete</button>` : ""}
             </div>
           `).join("")
           : '<div class="empty">No players purchased yet.</div>';
@@ -3312,54 +3600,58 @@
       }).join("");
     }
 
-    function teamExportRows() {
+    function teamExportGroups() {
       const totalBudget = auctionConfig().totalBudget;
-      const rows = [[
-        "Team",
-        "Total Budget",
-        "Budget Used",
-        "Balance Left",
-        "Players Purchased",
-        "Max Slots",
-        "Slots Remaining",
-        "Serial No.",
-        "Player",
-        "Amount"
-      ]];
-
-      cleanTeams(auctionState.teams).forEach((team) => {
+      return cleanTeams(auctionState.teams).map((team) => {
         const players = soldPlayersForTeam(team);
         const usedBudget = players.reduce((total, player) => total + (Number(player.bid) || 0), 0);
         const balance = Math.max(totalBudget - usedBudget, 0);
         const maxSlots = Number(team.maxSlots) || TEAM_PLAYER_SLOTS;
-        const slotsRemaining = Math.max(maxSlots - players.length, 0);
-
-        if (!players.length) {
-          rows.push([team.name, totalBudget, usedBudget, balance, players.length, maxSlots, slotsRemaining, "", "", ""]);
-          return;
-        }
-
-        players.forEach((player) => {
-          rows.push([
-            team.name,
+        return {
+          team,
+          players,
+          summary: {
             totalBudget,
             usedBudget,
             balance,
-            players.length,
             maxSlots,
-            slotsRemaining,
-            player.playerNumber || "",
-            player.player || "Unnamed player",
-            Number(player.bid) || 0
-          ]);
-        });
+            slotsRemaining: Math.max(maxSlots - players.length, 0)
+          }
+        };
       });
+    }
 
+    function teamExportRows() {
+      const groups = teamExportGroups();
+      const maxPlayers = Math.max(...groups.map((group) => group.players.length), 0);
+      const rows = [
+        groups.flatMap((group) => [group.team.name, "", "", ""]),
+        groups.flatMap(() => ["Serial No.", "Player", "Amount", ""])
+      ];
+
+      for (let index = 0; index < maxPlayers; index += 1) {
+        rows.push(groups.flatMap((group) => {
+          const player = group.players[index];
+          return player
+            ? [player.playerNumber || "", player.player || "Unnamed player", Number(player.bid) || 0, ""]
+            : ["", "", "", ""];
+        }));
+      }
+
+      rows.push([]);
+      rows.push(groups.flatMap((group) => ["Players", group.players.length, "", ""]));
+      rows.push(groups.flatMap((group) => ["Used", group.summary.usedBudget, "", ""]));
+      rows.push(groups.flatMap((group) => ["Balance", group.summary.balance, "", ""]));
+      rows.push(groups.flatMap((group) => ["Slots Left", group.summary.slotsRemaining, "", ""]));
       return rows;
     }
 
     function downloadTextFile(filename, content, type) {
       const blob = new Blob([content], { type });
+      downloadBlob(filename, blob);
+    }
+
+    function downloadBlob(filename, blob) {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
@@ -3370,6 +3662,47 @@
       URL.revokeObjectURL(url);
     }
 
+    function pdfEscape(text) {
+      return String(text ?? "").replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
+    }
+
+    function buildSimplePdf(pages) {
+      const objects = [];
+      const addObject = (content) => {
+        objects.push(content);
+        return objects.length;
+      };
+      const catalogId = addObject("");
+      const pagesId = addObject("");
+      const pageIds = [];
+
+      pages.forEach((page) => {
+        const content = page.lines.map((line) => (
+          `BT /F1 ${line.size || 9} Tf ${line.x} ${line.y} Td (${pdfEscape(line.text)}) Tj ET`
+        )).join("\n");
+        const contentId = addObject(`<< /Length ${content.length} >>\nstream\n${content}\nendstream`);
+        const pageId = addObject(`<< /Type /Page /Parent ${pagesId} 0 R /MediaBox [0 0 ${page.width} ${page.height}] /Resources << /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >> /Contents ${contentId} 0 R >>`);
+        pageIds.push(pageId);
+      });
+
+      objects[catalogId - 1] = `<< /Type /Catalog /Pages ${pagesId} 0 R >>`;
+      objects[pagesId - 1] = `<< /Type /Pages /Kids [${pageIds.map((id) => `${id} 0 R`).join(" ")}] /Count ${pageIds.length} >>`;
+
+      let pdf = "%PDF-1.4\n";
+      const offsets = [0];
+      objects.forEach((object, index) => {
+        offsets.push(pdf.length);
+        pdf += `${index + 1} 0 obj\n${object}\nendobj\n`;
+      });
+      const xrefOffset = pdf.length;
+      pdf += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n`;
+      offsets.slice(1).forEach((offset) => {
+        pdf += `${String(offset).padStart(10, "0")} 00000 n \n`;
+      });
+      pdf += `trailer\n<< /Size ${objects.length + 1} /Root ${catalogId} 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+      return pdf;
+    }
+
     function downloadTeamsExcel() {
       const csv = teamExportRows()
         .map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(","))
@@ -3378,9 +3711,32 @@
     }
 
     function downloadTeamsPdf() {
-      const rows = teamExportRows();
-      const text = rows.map((row) => row.join(" | ")).join("\n");
-      downloadTextFile("etl-team-lists.pdf", text, "application/pdf");
+      const groups = teamExportGroups();
+      const pages = [];
+      for (let index = 0; index < groups.length; index += 2) {
+        const pageGroups = groups.slice(index, index + 2);
+        const lines = [{ x: 34, y: 565, size: 16, text: "ETL Team Overview" }];
+        pageGroups.forEach((group, groupIndex) => {
+          const x = groupIndex === 0 ? 34 : 430;
+          let y = 530;
+          lines.push({ x, y, size: 13, text: group.team.name });
+          y -= 20;
+          lines.push({ x, y, size: 9, text: `Players: ${group.players.length} | Used: ${money(group.summary.usedBudget)} | Balance: ${money(group.summary.balance)} | Slots Left: ${group.summary.slotsRemaining}` });
+          y -= 24;
+          lines.push({ x, y, size: 9, text: "Serial No.    Player                         Amount" });
+          y -= 16;
+          (group.players.length ? group.players : [{ playerNumber: "-", player: "No players purchased yet", bid: "" }]).forEach((player) => {
+            if (y < 40) return;
+            const name = String(player.player || "Unnamed player").slice(0, 28);
+            lines.push({ x, y, size: 9, text: `${String(player.playerNumber || "-").padEnd(12)} ${name.padEnd(30)} ${player.bid === "" ? "" : money(player.bid)}` });
+            y -= 14;
+          });
+        });
+        pages.push({ width: 842, height: 595, lines });
+      }
+
+      const pdf = buildSimplePdf(pages.length ? pages : [{ width: 842, height: 595, lines: [{ x: 34, y: 565, size: 16, text: "No teams available" }] }]);
+      downloadBlob("etl-team-lists.pdf", new Blob([pdf], { type: "application/pdf" }));
     }
 
     function playerExportRows() {
@@ -3637,11 +3993,23 @@
 
     function renderPlayerCustomFieldsForm() {
       const fields = cleanPlayerFields(auctionState.playerFields);
+      const fieldIntroMarkup = (field) => {
+        const helpImage = safeImage(field.helpImage);
+        if (!field.helpText && !helpImage) return "";
+        return `
+          <div class="field-help">
+            ${helpImage ? `<img src="${helpImage}" alt="${escapeHtml(field.label)} guide" />` : ""}
+            ${field.helpText ? `<span>${escapeHtml(field.helpText)}</span>` : ""}
+          </div>
+        `;
+      };
+
       playerCustomFieldsForm.innerHTML = fields.map((field) => {
         if (field.type === "number") {
           return `
             <label>
-              ${escapeHtml(field.label)}
+              ${fieldIntroMarkup(field)}
+              ${requiredLabel(field.label)}
               <input type="number" data-player-extra-field="${escapeHtml(field.key)}" autocomplete="off" />
             </label>
           `;
@@ -3650,7 +4018,8 @@
         if (field.type === "dropdown") {
           return `
             <label>
-              ${escapeHtml(field.label)}
+              ${fieldIntroMarkup(field)}
+              ${requiredLabel(field.label)}
               <select data-player-extra-field="${escapeHtml(field.key)}">
                 <option value="">Select</option>
                 ${field.options.map((option) => `<option value="${escapeHtml(option)}">${escapeHtml(option)}</option>`).join("")}
@@ -3663,7 +4032,8 @@
           const inputType = field.multiple ? "checkbox" : "radio";
           return `
             <div class="choice-list" data-player-extra-choice-group="${escapeHtml(field.key)}">
-              <strong>${escapeHtml(field.label)}</strong>
+              ${fieldIntroMarkup(field)}
+              <strong>${requiredLabel(field.label)}</strong>
               ${field.options.map((option) => `
                 <label>
                   <input type="${inputType}" name="choice-${escapeHtml(field.key)}" data-player-extra-field="${escapeHtml(field.key)}" value="${escapeHtml(option)}" />
@@ -3677,7 +4047,8 @@
         if (field.type === "photo") {
           return `
             <label>
-              ${escapeHtml(field.label)}
+              ${fieldIntroMarkup(field)}
+              ${requiredLabel(field.label)}
               <input type="file" data-player-extra-field="${escapeHtml(field.key)}" accept="image/*" />
             </label>
           `;
@@ -3685,7 +4056,8 @@
 
         return `
           <label>
-            ${escapeHtml(field.label)}
+            ${fieldIntroMarkup(field)}
+            ${requiredLabel(field.label)}
             <input type="text" data-player-extra-field="${escapeHtml(field.key)}" autocomplete="off" />
           </label>
         `;
@@ -3699,8 +4071,11 @@
         return;
       }
 
-      playerFieldList.innerHTML = fields.map((field) => `
-        <div class="custom-field-row" data-player-field-id="${escapeHtml(field.id)}">
+      playerFieldList.innerHTML = fields.map((field) => {
+        const hasOptions = ["dropdown", "checkbox"].includes(field.type);
+        const isCheckbox = field.type === "checkbox";
+        return `
+        <div class="custom-field-row" data-player-field-id="${escapeHtml(field.id)}" data-player-field-type-row="${escapeHtml(field.type)}">
           <label>
             Field name
             <input type="text" data-player-field-name value="${escapeHtml(field.label)}" />
@@ -3717,21 +4092,31 @@
           </label>
           <label>
             Options
-            <input type="text" data-player-field-options value="${escapeHtml(field.options.join(", "))}" placeholder="Option 1, Option 2" />
+            <input type="text" data-player-field-options value="${escapeHtml(field.options.join(", "))}" placeholder="Option 1, Option 2" ${hasOptions ? "" : "disabled"} />
           </label>
-          <label>
+          <label class="${isCheckbox ? "" : "field-setting-hidden"}">
             Tick box selection
-            <select data-player-field-multiple>
+            <select data-player-field-multiple ${isCheckbox ? "" : "disabled"}>
               <option value="true" ${field.multiple ? "selected" : ""}>Multiple options can be selected</option>
               <option value="false" ${!field.multiple ? "selected" : ""}>Only one option can be selected</option>
             </select>
           </label>
+          <label>
+            Field line
+            <input type="text" data-player-field-help-text value="${escapeHtml(field.helpText)}" placeholder="Optional line shown with this field" />
+          </label>
+          <label>
+            Field picture
+            <input type="file" data-player-field-help-image accept="image/*" />
+          </label>
           <div class="actions">
             <button class="btn-primary" data-player-field-action="save">Save</button>
+            <button class="btn-neutral" data-player-field-action="remove-image">Remove Picture</button>
             <button class="btn-danger" data-player-field-action="delete">Delete</button>
           </div>
         </div>
-      `).join("");
+      `;
+      }).join("");
     }
 
     function renderBasePlayerFieldSettings() {
@@ -3760,16 +4145,16 @@
         renderPlayerFieldSettings();
         renderBasePlayerFieldSettings();
         renderPlayerFormIntro();
-        if (!playerSerialField.value.trim()) playerSerialField.value = nextPlayerSerial(players);
+        refreshRegistrationSerial();
         return;
       }
 
-      const playerListColumns = `72px 90px minmax(160px, 1fr) 80px 140px ${fields.map(() => "minmax(120px, 1fr)").join(" ")} auto`;
+      const playerListColumns = `72px 90px minmax(180px, 1fr) 80px 140px ${fields.map(() => "minmax(120px, 1fr)").join(" ")} auto`;
       playerRegistryList.innerHTML = `
-        <div class="player-list-row header" style="grid-template-columns: ${playerListColumns};">
+        <div class="player-list-row header player-list-row--admin" style="--player-admin-columns: ${playerListColumns};">
           <span>Picture</span>
           <span>Serial No.</span>
-          <span>Player</span>
+          <span>Name of Player</span>
           <span>Age</span>
           <span>Role</span>
           ${fields.map((field) => `<span>${escapeHtml(field.label)}</span>`).join("")}
@@ -3782,7 +4167,7 @@
             : '<div class="player-thumb-placeholder">Photo</div>';
 
           return `
-            <div class="player-list-row" style="grid-template-columns: ${playerListColumns};" data-player-id="${escapeHtml(player.id)}">
+            <div class="player-list-row player-list-row--admin" style="--player-admin-columns: ${playerListColumns};" data-player-id="${escapeHtml(player.id)}">
               ${photoMarkup}
               <strong>${escapeHtml(player.serial || "-")}</strong>
               <strong>${escapeHtml(player.name || "Unnamed player")}</strong>
@@ -3805,7 +4190,7 @@
       renderPlayerFieldSettings();
       renderBasePlayerFieldSettings();
       renderPlayerFormIntro();
-      if (!playerSerialField.value.trim()) playerSerialField.value = nextPlayerSerial(players);
+      refreshRegistrationSerial();
     }
 
     function renderPlayerFormIntro() {
@@ -3848,6 +4233,7 @@
       if (!bidInput.value) bidInput.value = Number(auctionState.currentBid) || basePrice();
       statusDisplay.textContent = auctionState.status || "Waiting";
       setStatusClass(auctionState.status);
+      updateAuctionButtons();
       renderHistory();
       renderStats();
       renderPulseDetail(document.querySelector(".pulse-metric.active")?.dataset.pulseCategory || "all");
@@ -3858,6 +4244,13 @@
       if (selectedTeamBeforeRender && cleanTeams(auctionState.teams).some((team) => team.name === selectedTeamBeforeRender)) {
         teamInput.value = selectedTeamBeforeRender;
       }
+    }
+
+    function updateAuctionButtons() {
+      const hasCurrentPlayer = Boolean((auctionState.currentPlayer || "").trim());
+      [soldBtn, unsoldBtn, deductBidBtn, ...document.querySelectorAll("[data-increment]")].forEach((button) => {
+        button.disabled = !hasCurrentPlayer;
+      });
     }
 
     function updateAuctionState(updates) {
@@ -3889,8 +4282,30 @@
 
       soldCelebration.classList.add("active");
       window.setTimeout(() => {
-        soldCelebration.classList.remove("active");
+        soldCelebration.classList.remove("active", "registration-success");
       }, 3800);
+    }
+
+    function showRegistrationSuccess() {
+      soldCelebration.classList.remove("unsold");
+      soldCelebration.classList.add("registration-success");
+      soldCelebration.innerHTML = '<div class="registration-success__text">REGISTRATION SUCCESSFUL</div>';
+      const colors = ["#ffdf7a", "#ef4444", "#60a5fa", "#ffffff", "#f59e0b"];
+
+      for (let i = 0; i < 110; i += 1) {
+        const piece = document.createElement("div");
+        piece.className = "confetti-piece";
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.background = colors[i % colors.length];
+        piece.style.animationDelay = `${Math.random() * 0.7}s`;
+        piece.style.animationDuration = `${2.8 + Math.random() * 1.2}s`;
+        soldCelebration.appendChild(piece);
+      }
+
+      soldCelebration.classList.add("active");
+      window.setTimeout(() => {
+        soldCelebration.classList.remove("active", "registration-success");
+      }, 4000);
     }
 
     function showUnsoldAnimation() {
@@ -3983,22 +4398,27 @@
       const isRegistration = tabName === "registration";
       const isHome = tabName === "home";
       const isViewAuction = tabName === "viewAuction";
+      const isPublicTeams = tabName === "publicTeams";
       document.body.classList.toggle("home-page", isHome);
       document.body.classList.toggle("public-auction", isViewAuction);
+      document.body.classList.toggle("public-teams", isPublicTeams);
       document.body.classList.toggle("registration-page", isRegistration);
       document.body.classList.toggle("admin-page", ["auction", "teams", "players", "settings"].includes(tabName));
       homeView.classList.toggle("active", isHome);
       auctionView.classList.toggle("active", isViewAuction || isAuction);
-      teamsView.classList.toggle("active", isTeams);
+      teamsView.classList.toggle("active", isTeams || isPublicTeams);
       registrationView.classList.toggle("active", isRegistration);
       playersView.classList.toggle("active", isPlayers);
       settingsView.classList.toggle("active", isSettings);
       homeTabBtn.classList.toggle("active", isHome);
+      publicAuctionTabBtn.classList.toggle("active", isViewAuction);
+      publicTeamsTabBtn.classList.toggle("active", isPublicTeams);
       auctionTabBtn.classList.toggle("active", isAuction);
       registrationTabBtn.classList.toggle("active", isRegistration);
       teamsTabBtn.classList.toggle("active", isTeams);
       playersTabBtn.classList.toggle("active", isPlayers);
       settingsTabBtn.classList.toggle("active", isSettings);
+      if (isRegistration) refreshRegistrationSerial();
       renderPulseDetail(document.querySelector(".pulse-metric.active")?.dataset.pulseCategory || "all");
       renderPublicPlayerList();
     }
@@ -4022,6 +4442,7 @@
     });
 
     document.body.classList.add("home-page");
+    refreshRegistrationSerial();
 
     homeAdminBtn.addEventListener("click", () => setActiveTab("auction"));
     homeAuctionBtn.addEventListener("click", () => setActiveTab("viewAuction"));
@@ -4081,33 +4502,6 @@
     });
 
     pulseDetail.addEventListener("click", (event) => {
-      const deleteButton = event.target.closest("[data-delete-pulse-key]");
-      if (deleteButton) {
-        const id = deleteButton.dataset.deletePulseKey;
-        if (id === "__current") {
-          prepareNextPlayer();
-          return;
-        }
-
-        if (id.startsWith("history:")) {
-          const historyId = id.replace("history:", "");
-          const history = cleanHistory(auctionState.history).filter((item) => item.id !== historyId);
-          updateAuctionState({ history });
-          return;
-        }
-
-        if (id.startsWith("player:")) {
-          const playerId = id.replace("player:", "");
-          const players = cleanPlayers(auctionState.players).filter((player) => player.id !== playerId);
-          updateAuctionState({ players });
-          return;
-        }
-
-        const history = cleanHistory(auctionState.history).filter((item) => item.id !== id);
-        updateAuctionState({ history });
-        return;
-      }
-
       const sortButton = event.target.closest("[data-sold-sort]");
       if (!sortButton) return;
 
@@ -4283,8 +4677,11 @@
     });
 
     savePlayerBtn.addEventListener("click", async () => {
+      if (!validatePlayerRegistrationForm()) return;
+
       const uploadedPhoto = isBaseFieldVisible("photo") ? await readImageFile(playerPhotoFileField) : "";
-      const enteredSerial = isBaseFieldVisible("serial") ? playerSerialField.value.trim() : "";
+      const editingSerial = playerSerialField.dataset.editingSerial || "";
+      const enteredSerial = editingSerial || nextPlayerSerial();
       const name = isBaseFieldVisible("name") ? playerNameField.value.trim() : "";
 
       const players = cleanPlayers(auctionState.players);
@@ -4331,10 +4728,11 @@
 
       clearPlayerRegistryForm();
       updateAuctionState({ players: cleanPlayers(players) }).then(() => {
+        showRegistrationSuccess();
         playerSubmitToast.classList.add("active");
         window.setTimeout(() => {
           playerSubmitToast.classList.remove("active");
-        }, 2800);
+        }, 4000);
       });
     });
 
@@ -4351,38 +4749,53 @@
       if (!player) return;
 
       if (actionButton.dataset.playerAction === "delete") {
-        updateAuctionState({ players: players.filter((item) => item.id !== playerId) });
+        const history = cleanHistory(auctionState.history)
+          .filter((item) => String(item.playerNumber || "").trim().toLowerCase() !== String(player.serial || "").trim().toLowerCase());
+        updateAuctionState({
+          players: players.filter((item) => item.id !== playerId),
+          history
+        });
         return;
       }
 
       playerSerialField.value = player.serial;
+      playerSerialField.dataset.editingSerial = player.serial;
       playerNameField.value = player.name;
       playerAgeField.value = player.age;
       playerRoleField.value = player.role || "All-Rounder";
       playerPhotoFileField.value = "";
+      playerPhotoFileField.dataset.existingPhoto = player.photo || "";
       renderPlayerCustomFieldsForm();
       playerCustomFieldsForm.querySelectorAll("[data-player-extra-field]").forEach((input) => {
         const value = player.details?.[input.dataset.playerExtraField];
+        if (input.type === "file") {
+          input.dataset.existingPhoto = safeImage(value) || "";
+          return;
+        }
         if (input.type === "checkbox" || input.type === "radio") {
           input.checked = Array.isArray(value) ? value.includes(input.value) : value === input.value;
         } else if (input.type !== "file") {
           input.value = value || "";
         }
       });
+      setActiveTab("registration");
     });
 
     addPlayerFieldBtn.addEventListener("click", () => {
       const label = newPlayerFieldName.value.trim();
       if (!label) return;
 
+      const type = newPlayerFieldType.value;
       const fields = cleanPlayerFields(auctionState.playerFields);
       fields.push({
         id: createId(),
         key: fieldKey(label),
         label,
-        type: newPlayerFieldType.value,
-        options: newPlayerFieldOptions.value.split(",").map((option) => option.trim()).filter(Boolean),
-        multiple: newPlayerFieldMultiple.value !== "false"
+        type,
+        options: ["dropdown", "checkbox"].includes(type) ? newPlayerFieldOptions.value.split(",").map((option) => option.trim()).filter(Boolean) : [],
+        multiple: type === "checkbox" ? newPlayerFieldMultiple.value !== "false" : false,
+        helpText: "",
+        helpImage: ""
       });
       newPlayerFieldName.value = "";
       newPlayerFieldOptions.value = "";
@@ -4391,7 +4804,7 @@
       updateAuctionState({ playerFields: cleanPlayerFields(fields) });
     });
 
-    playerFieldList.addEventListener("click", (event) => {
+    playerFieldList.addEventListener("click", async (event) => {
       const actionButton = event.target.closest("[data-player-field-action]");
       if (!actionButton) return;
 
@@ -4414,14 +4827,27 @@
         return;
       }
 
+      if (action === "remove-image") {
+        fields[fieldIndex].helpImage = "";
+        updateAuctionState({ playerFields: cleanPlayerFields(fields) });
+        return;
+      }
+
       const nameInput = row.querySelector("[data-player-field-name]");
       const typeInput = row.querySelector("[data-player-field-type]");
       const optionsInput = row.querySelector("[data-player-field-options]");
       const multipleInput = row.querySelector("[data-player-field-multiple]");
+      const helpTextInput = row.querySelector("[data-player-field-help-text]");
+      const helpImageInput = row.querySelector("[data-player-field-help-image]");
+      const uploadedHelpImage = await readImageFile(helpImageInput);
       fields[fieldIndex].label = nameInput.value.trim() || fields[fieldIndex].label;
       fields[fieldIndex].type = typeInput.value;
-      fields[fieldIndex].options = optionsInput.value.split(",").map((option) => option.trim()).filter(Boolean);
-      fields[fieldIndex].multiple = multipleInput.value !== "false";
+      fields[fieldIndex].options = ["dropdown", "checkbox"].includes(typeInput.value)
+        ? optionsInput.value.split(",").map((option) => option.trim()).filter(Boolean)
+        : [];
+      fields[fieldIndex].multiple = typeInput.value === "checkbox" ? multipleInput.value !== "false" : false;
+      fields[fieldIndex].helpText = helpTextInput.value.trim();
+      fields[fieldIndex].helpImage = uploadedHelpImage || fields[fieldIndex].helpImage || "";
       updateAuctionState({ playerFields: cleanPlayerFields(fields) });
     });
 
@@ -4581,11 +5007,18 @@
     downloadTeamsPdfBtn.addEventListener("click", downloadTeamsPdf);
     downloadPlayersExcelBtn.addEventListener("click", downloadPlayersExcel);
     downloadPlayersPdfBtn.addEventListener("click", downloadPlayersPdf);
+    downloadPublicPlayersExcelBtn.addEventListener("click", downloadPlayersExcel);
+    downloadPublicPlayersPdfBtn.addEventListener("click", downloadPlayersPdf);
 
     updatePlayerBtn.addEventListener("click", () => {
+      const serial = playerNumberInput.value.trim();
+      if (!serial) {
+        selectRandomNextPlayer();
+        return;
+      }
+
       const basePrice = Number(basePriceInput.value) || auctionConfig().basePrice;
       const bidValue = Number(bidInput.value) || basePrice;
-      const serial = playerNumberInput.value.trim();
       const registryPlayer = findPlayerBySerial(serial);
       const playerName = registryPlayer ? registryPlayer.name : playerInput.value.trim();
 
