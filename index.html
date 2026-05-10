@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,23 +11,23 @@
       --surface: rgba(7, 18, 41, 0.92);
       --surface-strong: #050b1c;
       --surface-soft: rgba(13, 32, 70, 0.84);
-      --line: rgba(244, 196, 76, 0.28);
+      --line: rgba(255, 215, 0, 0.28);
       --muted: #b8c7df;
       --text: #f8fbff;
-      --brand: #f4c44c;
+      --brand: #FFD700;
       --brand-dark: #c98b17;
       --danger: #ef4444;
-      --warning: #f59e0b;
+      --warning: #FFD700;
       --success: #22c55e;
       --shadow: 0 22px 60px rgba(0, 0, 0, 0.42);
-      --gold-glow: 0 0 16px rgba(244, 196, 76, 0.42), 0 0 42px rgba(29, 78, 216, 0.28);
+      --gold-glow: 0 0 16px rgba(255, 215, 0, 0.42), 0 0 42px rgba(29, 78, 216, 0.28);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: Calibri, Arial, sans-serif;
     }
 
     body {
@@ -35,7 +35,7 @@
       position: relative;
       background:
         radial-gradient(circle at 50% 8%, rgba(20, 89, 181, 0.48), transparent 34%),
-        radial-gradient(circle at 50% 58%, rgba(244, 196, 76, 0.16), transparent 34%),
+        radial-gradient(circle at 50% 58%, rgba(255, 215, 0, 0.16), transparent 34%),
         linear-gradient(135deg, #02040c 0%, #06102a 45%, #02040c 100%);
       color: var(--text);
     }
@@ -49,7 +49,7 @@
       background-position: center 52%;
       background-size: min(760px, 78vw);
       opacity: 0.22;
-      filter: drop-shadow(0 0 20px rgba(250, 204, 21, 0.72)) drop-shadow(0 0 70px rgba(37, 99, 235, 0.8));
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.72)) drop-shadow(0 0 70px rgba(37, 99, 235, 0.8));
       pointer-events: none;
       z-index: 0;
     }
@@ -83,7 +83,7 @@
 
     button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 0 18px rgba(244, 196, 76, 0.24);
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.24);
     }
 
     button:active {
@@ -132,7 +132,7 @@
       align-items: center;
       justify-content: center;
       gap: 18px;
-      border-bottom: 1px solid rgba(244, 196, 76, 0.34);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.34);
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
       backdrop-filter: blur(10px);
       position: relative;
@@ -146,12 +146,12 @@
     }
 
     .welcome-copy h1 {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: clamp(18px, 2.4vw, 28px);
       line-height: 1.2;
       letter-spacing: 0;
       text-transform: uppercase;
-      text-shadow: 0 0 18px rgba(244, 196, 76, 0.28);
+      text-shadow: 0 0 18px rgba(255, 215, 0, 0.28);
     }
 
     .sync-pill {
@@ -171,7 +171,7 @@
 
     .tournament-banner {
       background: linear-gradient(180deg, rgba(2, 8, 24, 0.72), rgba(7, 18, 41, 0.58));
-      border-bottom: 1px solid rgba(244, 196, 76, 0.24);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.24);
       padding: 22px clamp(16px, 3vw, 36px);
       text-align: center;
       display: grid;
@@ -209,8 +209,8 @@
       font-size: clamp(26px, 4vw, 44px);
       line-height: 1.05;
       letter-spacing: 0;
-      color: #ffdf7a;
-      text-shadow: 0 0 12px rgba(244, 196, 76, 0.42), 0 0 28px rgba(29, 78, 216, 0.34);
+      color: #FFD700;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.42), 0 0 28px rgba(29, 78, 216, 0.34);
     }
 
     .sponsor-strip {
@@ -225,16 +225,16 @@
     .sponsor-card {
       min-width: 128px;
       max-width: 148px;
-      border: 1px solid rgba(244, 196, 76, 0.34);
+      border: 1px solid rgba(255, 215, 0, 0.34);
       border-radius: 8px;
       padding: 8px;
       display: grid;
       justify-items: center;
       gap: 8px;
       background:
-        linear-gradient(180deg, rgba(255, 223, 122, 0.1), transparent 38%),
+        linear-gradient(180deg, rgba(255, 215, 0, 0.1), transparent 38%),
         rgba(3, 9, 24, 0.82);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22), 0 0 20px rgba(244, 196, 76, 0.14);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22), 0 0 20px rgba(255, 215, 0, 0.14);
     }
 
     .sponsor-card img,
@@ -267,7 +267,7 @@
     }
 
     .sponsor-card span {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: 11px;
       font-weight: 800;
       min-height: 20px;
@@ -285,8 +285,8 @@
     .tab-btn {
       align-items: center;
       background: rgba(8, 21, 48, 0.92);
-      border: 1px solid rgba(244, 196, 76, 0.24);
-      color: #f7e4a4;
+      border: 1px solid rgba(255, 215, 0, 0.24);
+      color: #FFD700;
       display: inline-flex;
       justify-content: center;
       min-width: 120px;
@@ -294,7 +294,7 @@
     }
 
     .tab-btn.active {
-      background: linear-gradient(180deg, #f8d46a, #b7790f);
+      background: linear-gradient(180deg, #FFD700, #b7790f);
       color: #071229;
       box-shadow: var(--gold-glow);
     }
@@ -319,6 +319,7 @@
     body.public-teams .tabs #teamsTabBtn,
     body.public-teams .tabs #playersTabBtn,
     body.public-teams .tabs #settingsTabBtn,
+    body.moments-page .tabs .tab-btn:not(#homeTabBtn),
     body.registration-page .tabs .tab-btn:not(#homeTabBtn) {
       display: none;
     }
@@ -419,7 +420,7 @@
     .home-welcome {
       width: min(100%, 980px);
       background: rgba(7, 18, 41, 0.94);
-      border: 1px solid rgba(244, 196, 76, 0.22);
+      border: 1px solid rgba(255, 215, 0, 0.22);
       border-radius: 12px;
       box-shadow: var(--shadow);
       display: grid;
@@ -429,7 +430,7 @@
     }
 
     .home-welcome h2 {
-      color: #ffd400;
+      color: #FFD700;
       font-size: clamp(26px, 4vw, 44px);
       line-height: 1.16;
       text-transform: uppercase;
@@ -442,14 +443,14 @@
 
     .home-card-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
-      width: min(920px, 100%);
+      width: min(1160px, 100%);
     }
 
     .home-card {
       background: rgba(7, 18, 41, 0.94);
-      border: 1px solid rgba(244, 196, 76, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.2);
       border-radius: 12px;
       color: #d6deec;
       display: grid;
@@ -466,12 +467,27 @@
     }
 
     .home-card__icon {
-      font-size: 38px;
-      line-height: 1;
+      align-items: center;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.32), transparent 24px),
+        linear-gradient(145deg, rgba(8, 26, 64, 0.96), rgba(3, 8, 22, 0.96));
+      border: 1px solid rgba(255, 215, 0, 0.5);
+      border-radius: 18px;
+      box-shadow: 0 0 24px rgba(255, 215, 0, 0.18), inset 0 0 18px rgba(37, 99, 235, 0.18);
+      display: grid;
+      height: 64px;
+      place-items: center;
+      width: 64px;
+    }
+
+    .home-card__icon svg {
+      display: block;
+      height: 44px;
+      width: 44px;
     }
 
     .home-card strong {
-      color: #ffd400;
+      color: #FFD700;
       font-size: 22px;
     }
 
@@ -485,7 +501,7 @@
     .settings-group__title:hover,
     .pulse-metric:hover,
     .footer-link:hover {
-      box-shadow: 0 0 18px rgba(244, 196, 76, 0.28), 0 0 34px rgba(37, 99, 235, 0.18);
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.28), 0 0 34px rgba(37, 99, 235, 0.18);
     }
 
     .main {
@@ -512,7 +528,7 @@
       background: linear-gradient(145deg, rgba(3, 9, 24, 0.96), rgba(7, 22, 55, 0.93));
       color: #fff;
       border-radius: 8px;
-      border: 1px solid rgba(244, 196, 76, 0.34);
+      border: 1px solid rgba(255, 215, 0, 0.34);
       box-shadow: var(--shadow);
       overflow: hidden;
       min-height: 330px;
@@ -555,11 +571,11 @@
     .live-board__header h2,
     .panel h2 {
       align-items: center;
-      background: linear-gradient(180deg, rgba(255, 223, 122, 0.14), rgba(183, 121, 15, 0.08));
-      border: 1px solid rgba(244, 196, 76, 0.26);
+      background: linear-gradient(180deg, rgba(255, 215, 0, 0.14), rgba(183, 121, 15, 0.08));
+      border: 1px solid rgba(255, 215, 0, 0.26);
       border-radius: 8px;
-      box-shadow: 0 0 14px rgba(244, 196, 76, 0.14);
-      color: #ffdf7a;
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.14);
+      color: #FFD700;
       display: inline-flex;
       font-size: 18px;
       letter-spacing: 0;
@@ -617,7 +633,7 @@
     }
 
     .stage-label {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
@@ -641,7 +657,7 @@
     .player-photo-placeholder {
       width: 96px;
       height: 112px;
-      border: 1px solid rgba(244, 196, 76, 0.3);
+      border: 1px solid rgba(255, 215, 0, 0.3);
       border-radius: 8px;
       display: grid;
       place-items: center;
@@ -660,7 +676,7 @@
 
     .player-detail {
       background: rgba(3, 9, 24, 0.58);
-      border: 1px solid rgba(244, 196, 76, 0.18);
+      border: 1px solid rgba(255, 215, 0, 0.18);
       border-radius: 8px;
       display: grid;
       gap: 4px;
@@ -675,7 +691,7 @@
     }
 
     .player-detail strong {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: 14px;
       overflow-wrap: anywhere;
     }
@@ -696,7 +712,7 @@
       color: #ffe08a;
       letter-spacing: 0;
       white-space: nowrap;
-      text-shadow: 0 0 22px rgba(244, 196, 76, 0.36);
+      text-shadow: 0 0 22px rgba(255, 215, 0, 0.36);
     }
 
     .sold-to {
@@ -708,7 +724,7 @@
     }
 
     .sold-to strong {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: 16px;
       overflow-wrap: anywhere;
     }
@@ -806,19 +822,19 @@
     }
 
     .btn-primary {
-      background: linear-gradient(180deg, #f8d46a, #b7790f);
+      background: linear-gradient(180deg, #FFD700, #b7790f);
       color: #071229;
-      box-shadow: 0 0 14px rgba(244, 196, 76, 0.16);
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.16);
     }
 
     .btn-primary:hover {
-      background: linear-gradient(180deg, #ffe28b, #c98b17);
+      background: linear-gradient(180deg, #FFD700, #c98b17);
     }
 
     .btn-neutral {
       background: rgba(15, 36, 78, 0.9);
-      border: 1px solid rgba(244, 196, 76, 0.2);
-      color: #f8e7ac;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      color: #FFD700;
     }
 
     .btn-success {
@@ -872,7 +888,7 @@
     }
 
     .metric strong {
-      color: #ffd400;
+      color: #FFD700;
       font-size: 20px;
       overflow-wrap: anywhere;
     }
@@ -885,13 +901,13 @@
     .pulse-metric:hover,
     .pulse-metric.active {
       border-color: rgba(255, 212, 0, 0.78);
-      box-shadow: 0 0 18px rgba(244, 196, 76, 0.18);
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.18);
       transform: translateY(-1px);
     }
 
     .pulse-detail {
       background: rgba(3, 9, 24, 0.62);
-      border: 1px solid rgba(244, 196, 76, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.2);
       border-radius: 8px;
       display: grid;
       gap: 8px;
@@ -905,7 +921,7 @@
     }
 
     .pulse-detail h3 {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: 14px;
       letter-spacing: 0;
       text-transform: uppercase;
@@ -913,7 +929,7 @@
 
     .pulse-row {
       align-items: center;
-      border: 1px solid rgba(244, 196, 76, 0.14);
+      border: 1px solid rgba(255, 215, 0, 0.14);
       border-radius: 8px;
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto auto;
@@ -926,7 +942,7 @@
     }
 
     .pulse-header {
-      background: linear-gradient(180deg, #f8d46a, #b7790f);
+      background: linear-gradient(180deg, #FFD700, #b7790f);
       color: #071229;
     }
 
@@ -936,12 +952,12 @@
     }
 
     .pulse-row strong {
-      color: #ffdf7a;
+      color: #FFD700;
       overflow-wrap: anywhere;
     }
 
     .pulse-row span {
-      color: #ffdf7a;
+      color: #FFD700;
       font-weight: 800;
       white-space: nowrap;
     }
@@ -975,16 +991,16 @@
     }
 
     .sold-sort-btn.active {
-      background: linear-gradient(180deg, #f8d46a, #b7790f);
+      background: linear-gradient(180deg, #FFD700, #b7790f);
       color: #071229;
     }
 
     .teams-board h2 {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: 20px;
       letter-spacing: 0;
       text-transform: uppercase;
-      text-shadow: 0 0 14px rgba(244, 196, 76, 0.28);
+      text-shadow: 0 0 14px rgba(255, 215, 0, 0.28);
     }
 
     .team-grid {
@@ -1001,7 +1017,7 @@
 
     .team-card {
       background: rgba(7, 18, 41, 0.92);
-      border: 1px solid rgba(244, 196, 76, 0.24);
+      border: 1px solid rgba(255, 215, 0, 0.24);
       border-radius: 8px;
       box-shadow: var(--shadow);
       display: grid;
@@ -1036,11 +1052,11 @@
     }
 
     .team-card__name {
-      background: linear-gradient(180deg, rgba(255, 223, 122, 0.14), rgba(183, 121, 15, 0.08));
-      border: 1px solid rgba(244, 196, 76, 0.26);
+      background: linear-gradient(180deg, rgba(255, 215, 0, 0.14), rgba(183, 121, 15, 0.08));
+      border: 1px solid rgba(255, 215, 0, 0.26);
       border-radius: 8px;
-      box-shadow: 0 0 14px rgba(244, 196, 76, 0.14);
-      color: #ffdf7a;
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.14);
+      color: #FFD700;
       font-size: 22px;
       font-weight: 900;
       line-height: 1.08;
@@ -1057,7 +1073,7 @@
 
     .team-stat {
       background: rgba(3, 9, 24, 0.62);
-      border: 1px solid rgba(244, 196, 76, 0.16);
+      border: 1px solid rgba(255, 215, 0, 0.16);
       border-radius: 8px;
       display: grid;
       gap: 3px;
@@ -1066,7 +1082,7 @@
     }
 
     .team-stat span {
-      color: #ffdf7a;
+      color: #FFD700;
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
@@ -1096,7 +1112,7 @@
     .team-player-row {
       align-items: center;
       background: rgba(3, 9, 24, 0.54);
-      border: 1px solid rgba(244, 196, 76, 0.14);
+      border: 1px solid rgba(255, 215, 0, 0.14);
       border-radius: 8px;
       display: grid;
       grid-template-columns: 1fr auto auto;
@@ -1109,7 +1125,7 @@
     }
 
     .team-player-row span {
-      color: #ffdf7a;
+      color: #FFD700;
       font-weight: 800;
       white-space: nowrap;
     }
@@ -1156,7 +1172,7 @@
       padding: 6px 9px;
       text-transform: uppercase;
       background: rgba(15, 36, 78, 0.92);
-      color: #f8e7ac;
+      color: #FFD700;
     }
 
     .history-status.sold {
@@ -1187,14 +1203,14 @@
 
     .settings-hero {
       background: rgba(7, 18, 41, 0.92);
-      border: 1px solid rgba(244, 196, 76, 0.18);
+      border: 1px solid rgba(255, 215, 0, 0.18);
       border-radius: 12px;
       box-shadow: var(--shadow);
       padding: 22px;
     }
 
     .settings-hero h2 {
-      color: #ffd400;
+      color: #FFD700;
       font-size: 24px;
       letter-spacing: 0;
       margin-bottom: 6px;
@@ -1343,12 +1359,16 @@
     .registration-board label,
     .registration-board .choice-list strong,
     .registration-board .field-help span {
-      color: #ffdf7a;
+      color: #FFD700;
     }
 
     .registration-board input,
     .registration-board select {
-      color: #ffdf7a;
+      color: #FFD700;
+    }
+
+    .registration-board [data-base-player-field="serial"] {
+      display: none !important;
     }
 
     .required-star {
@@ -1364,9 +1384,9 @@
 
     .google-form-card {
       background:
-        linear-gradient(180deg, rgba(255, 223, 122, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 215, 0, 0.08), transparent 34%),
         rgba(3, 9, 24, 0.74);
-      border: 1px solid rgba(244, 196, 76, 0.24);
+      border: 1px solid rgba(255, 215, 0, 0.24);
       border-radius: 8px;
       display: grid;
       gap: 16px;
@@ -1375,7 +1395,7 @@
     }
 
     .player-form-intro {
-      border: 1px solid rgba(244, 196, 76, 0.24);
+      border: 1px solid rgba(255, 215, 0, 0.24);
       border-radius: 8px;
       display: none;
       gap: 12px;
@@ -1402,7 +1422,7 @@
     }
 
     .player-form-intro strong {
-      color: #ffdf7a;
+      color: #FFD700;
       display: block;
       font-size: 22px;
       padding: 0 16px 16px;
@@ -1434,7 +1454,7 @@
     .choice-list label {
       align-items: center;
       background: rgba(3, 9, 24, 0.54);
-      border: 1px solid rgba(244, 196, 76, 0.14);
+      border: 1px solid rgba(255, 215, 0, 0.14);
       border-radius: 8px;
       display: flex;
       gap: 10px;
@@ -1449,7 +1469,7 @@
     }
 
     .field-help {
-      border: 1px solid rgba(244, 196, 76, 0.16);
+      border: 1px solid rgba(255, 215, 0, 0.16);
       border-radius: 8px;
       display: grid;
       gap: 8px;
@@ -1481,7 +1501,7 @@
     .player-list-row {
       align-items: center;
       background: rgba(3, 9, 24, 0.66);
-      border: 1px solid rgba(244, 196, 76, 0.18);
+      border: 1px solid rgba(255, 215, 0, 0.18);
       border-radius: 8px;
       display: grid;
       grid-template-columns: 90px 120px minmax(220px, 1fr) 100px 160px 140px;
@@ -1490,7 +1510,7 @@
     }
 
     .player-list-row.header {
-      background: linear-gradient(180deg, #f8d46a, #b7790f);
+      background: linear-gradient(180deg, #FFD700, #b7790f);
       color: #071229;
       font-weight: 900;
       text-transform: uppercase;
@@ -1500,7 +1520,7 @@
     .player-thumb-placeholder {
       width: 56px;
       height: 56px;
-      border: 1px solid rgba(244, 196, 76, 0.32);
+      border: 1px solid rgba(255, 215, 0, 0.32);
       border-radius: 8px;
       display: grid;
       place-items: center;
@@ -1513,7 +1533,7 @@
     }
 
     .player-list-row strong {
-      color: #ffdf7a;
+      color: #FFD700;
       overflow-wrap: anywhere;
       text-transform: uppercase;
     }
@@ -1545,13 +1565,13 @@
 
     .player-subtab {
       background: rgba(8, 21, 48, 0.92);
-      border: 1px solid rgba(244, 196, 76, 0.24);
-      color: #f7e4a4;
+      border: 1px solid rgba(255, 215, 0, 0.24);
+      color: #FFD700;
       min-width: 130px;
     }
 
     .player-subtab.active {
-      background: linear-gradient(180deg, #f8d46a, #b7790f);
+      background: linear-gradient(180deg, #FFD700, #b7790f);
       color: #071229;
       box-shadow: var(--gold-glow);
     }
@@ -1569,7 +1589,7 @@
     .designer-member-row {
       align-items: center;
       background: rgba(3, 9, 24, 0.66);
-      border: 1px solid rgba(244, 196, 76, 0.18);
+      border: 1px solid rgba(255, 215, 0, 0.18);
       border-radius: 8px;
       display: grid;
       gap: 10px;
@@ -1587,7 +1607,7 @@
     .base-field-row {
       align-items: center;
       background: rgba(3, 9, 24, 0.66);
-      border: 1px solid rgba(244, 196, 76, 0.18);
+      border: 1px solid rgba(255, 215, 0, 0.18);
       border-radius: 8px;
       display: grid;
       grid-template-columns: minmax(180px, 1fr) auto;
@@ -1596,7 +1616,7 @@
     }
 
     .base-field-row strong {
-      color: #ffdf7a;
+      color: #FFD700;
       text-transform: uppercase;
     }
 
@@ -1605,7 +1625,7 @@
     }
 
     .designer-footer {
-      border-top: 1px solid rgba(244, 196, 76, 0.16);
+      border-top: 1px solid rgba(255, 215, 0, 0.16);
       color: #d6deec;
       display: grid;
       gap: 4px;
@@ -1618,7 +1638,7 @@
     }
 
     .footer-link {
-      color: #ffd400;
+      color: #FFD700;
       cursor: pointer;
       font-weight: 900;
       text-decoration: underline;
@@ -1657,7 +1677,7 @@
 
     .login-panel {
       background: rgba(7, 18, 41, 0.98);
-      border: 1px solid rgba(244, 196, 76, 0.32);
+      border: 1px solid rgba(255, 215, 0, 0.32);
       border-radius: 12px;
       box-shadow: var(--shadow);
       display: grid;
@@ -1667,7 +1687,7 @@
     }
 
     .login-panel h2 {
-      color: #ffd400;
+      color: #FFD700;
       text-transform: uppercase;
     }
 
@@ -1684,7 +1704,7 @@
 
     .designer-modal__panel {
       background: rgba(7, 18, 41, 0.98);
-      border: 1px solid rgba(244, 196, 76, 0.32);
+      border: 1px solid rgba(255, 215, 0, 0.32);
       border-radius: 12px;
       box-shadow: var(--shadow);
       display: grid;
@@ -1704,7 +1724,7 @@
     }
 
     .designer-modal__header h2 {
-      color: #ffd400;
+      color: #FFD700;
       text-transform: uppercase;
     }
 
@@ -1716,7 +1736,7 @@
 
     .designer-member-card {
       background: rgba(3, 9, 24, 0.66);
-      border: 1px solid rgba(244, 196, 76, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.2);
       border-radius: 8px;
       display: grid;
       gap: 8px;
@@ -1726,7 +1746,105 @@
     }
 
     .designer-member-card strong {
-      color: #ffdf7a;
+      color: #FFD700;
+      text-transform: uppercase;
+    }
+
+    .moments-board,
+    .moments-folder {
+      display: grid;
+      gap: 16px;
+    }
+
+    .moments-folder {
+      background: rgba(3, 9, 24, 0.66);
+      border: 1px solid rgba(255, 215, 0, 0.18);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .moments-folder h3 {
+      color: #FFD700;
+      text-transform: uppercase;
+    }
+
+    .moments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .moments-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border: 1px solid rgba(255, 215, 0, 0.24);
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.12);
+    }
+
+    .moment-image-wrap {
+      display: grid;
+      gap: 8px;
+    }
+
+    .moment-folder-tile {
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, rgba(255, 215, 0, 0.18), transparent 90px),
+        rgba(7, 18, 41, 0.86);
+      border: 1px solid rgba(255, 215, 0, 0.32);
+      border-radius: 10px;
+      color: #d6deec;
+      cursor: pointer;
+      display: grid;
+      gap: 10px;
+      min-height: 150px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .moment-folder-tile:hover {
+      border-color: rgba(255, 215, 0, 0.82);
+      box-shadow: var(--gold-glow);
+    }
+
+    .moment-folder-tile__icon {
+      color: #FFD700;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .moment-folder-tile strong {
+      color: #FFD700;
+      text-transform: uppercase;
+    }
+
+    .moment-folder-tile span {
+      font-size: 13px;
+    }
+
+    .moments-editor-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .moment-settings-block {
+      background: rgba(3, 9, 24, 0.5);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 8px;
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .moment-settings-block + .moment-settings-block {
+      margin-top: 12px;
+    }
+
+    .moment-settings-block h3 {
+      color: #FFD700;
+      font-size: 16px;
       text-transform: uppercase;
     }
 
@@ -1738,7 +1856,7 @@
 
     .settings-group {
       background: rgba(7, 18, 41, 0.94);
-      border: 1px solid rgba(244, 196, 76, 0.18);
+      border: 1px solid rgba(255, 215, 0, 0.18);
       border-radius: 12px;
       box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
       display: grid;
@@ -1747,7 +1865,7 @@
 
     .settings-group__title {
       align-items: center;
-      color: #ffd400;
+      color: #FFD700;
       cursor: pointer;
       display: flex;
       font-size: 16px;
@@ -1762,7 +1880,7 @@
     .settings-toggle {
       background: transparent;
       border: 0;
-      color: #ffd400;
+      color: #FFD700;
       font-size: 22px;
       font-weight: 900;
       line-height: 1;
@@ -1773,7 +1891,7 @@
 
     .settings-panel {
       background: rgba(3, 9, 24, 0.42);
-      border-top: 1px solid rgba(244, 196, 76, 0.18);
+      border-top: 1px solid rgba(255, 215, 0, 0.18);
       display: none;
       gap: 16px;
       padding: 18px;
@@ -1810,14 +1928,14 @@
     .registration-success__text {
       border: 3px solid rgba(255, 224, 138, 0.92);
       border-radius: 8px;
-      box-shadow: 0 0 24px rgba(244, 196, 76, 0.74), 0 0 90px rgba(244, 196, 76, 0.38);
-      color: #ffdf7a;
+      box-shadow: 0 0 24px rgba(255, 215, 0, 0.74), 0 0 90px rgba(255, 215, 0, 0.38);
+      color: #FFD700;
       font-size: clamp(44px, 9vw, 118px);
       font-weight: 900;
       line-height: 1;
       padding: 20px 42px;
       text-align: center;
-      text-shadow: 0 0 22px rgba(244, 196, 76, 0.8);
+      text-shadow: 0 0 22px rgba(255, 215, 0, 0.8);
       transform: rotate(-5deg);
       animation: soldPop 700ms ease-out both;
     }
@@ -1841,10 +1959,10 @@
 
     .sad-face {
       align-items: center;
-      background: linear-gradient(180deg, #f8d46a, #b7790f);
+      background: linear-gradient(180deg, #FFD700, #b7790f);
       border: 3px solid rgba(255, 244, 201, 0.88);
       border-radius: 50%;
-      box-shadow: 0 0 28px rgba(244, 196, 76, 0.54), 0 0 76px rgba(59, 130, 246, 0.26);
+      box-shadow: 0 0 28px rgba(255, 215, 0, 0.54), 0 0 76px rgba(59, 130, 246, 0.26);
       color: #071229;
       display: grid;
       font-size: clamp(82px, 12vw, 150px);
@@ -1926,6 +2044,10 @@
 
       .settings-layout {
         grid-template-columns: 1fr;
+      }
+
+      .home-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .bid-line,
@@ -2023,19 +2145,97 @@
       </section>
       <section class="home-card-grid" aria-label="Homepage shortcuts">
         <button class="home-card" id="homeAdminBtn">
-          <span class="home-card__icon">🔑</span>
+          <span class="home-card__icon home-card__icon--admin" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <defs>
+                <linearGradient id="adminKeyGold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#fff3a0" />
+                  <stop offset="0.52" stop-color="#FFD700" />
+                  <stop offset="1" stop-color="#ff9f1c" />
+                </linearGradient>
+              </defs>
+              <circle cx="23" cy="25" r="12" fill="url(#adminKeyGold)" />
+              <circle cx="23" cy="25" r="5" fill="#061431" />
+              <path d="M32 33 L50 51" stroke="#ff9f1c" stroke-width="8" stroke-linecap="round" />
+              <path d="M43 44 L50 37 M48 49 L56 41" stroke="#FFD700" stroke-width="5" stroke-linecap="round" />
+              <circle cx="18" cy="19" r="4" fill="#ffe889" opacity="0.85" />
+            </svg>
+          </span>
           <strong>Admin</strong>
         </button>
         <button class="home-card" id="homeAuctionBtn">
-          <span class="home-card__icon">📺</span>
+          <span class="home-card__icon home-card__icon--auction" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <defs>
+                <linearGradient id="auctionScreenBlue" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#38bdf8" />
+                  <stop offset="1" stop-color="#2563eb" />
+                </linearGradient>
+              </defs>
+              <rect x="12" y="15" width="40" height="30" rx="7" fill="#dbeafe" />
+              <rect x="16" y="19" width="32" height="22" rx="4" fill="url(#auctionScreenBlue)" />
+              <path d="M25 50 H39 M32 45 V50" stroke="#FFD700" stroke-width="5" stroke-linecap="round" />
+              <path d="M22 10 L16 5 M42 10 L48 5" stroke="#ef4444" stroke-width="4" stroke-linecap="round" />
+              <circle cx="45" cy="23" r="3" fill="#ef4444" />
+            </svg>
+          </span>
           <strong>View Auction</strong>
         </button>
         <button class="home-card" id="homeRegistrationBtn">
-          <span class="home-card__icon">📝</span>
+          <span class="home-card__icon home-card__icon--registration" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <defs>
+                <linearGradient id="formPaper" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#ffffff" />
+                  <stop offset="1" stop-color="#c7d2fe" />
+                </linearGradient>
+                <linearGradient id="formPencil" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#fb7185" />
+                  <stop offset="1" stop-color="#f97316" />
+                </linearGradient>
+              </defs>
+              <path d="M17 9 H39 L50 20 V54 H17 Z" fill="url(#formPaper)" />
+              <path d="M39 9 V21 H50" fill="#93c5fd" />
+              <path d="M24 28 H41 M24 36 H37" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round" />
+              <path d="M41 42 L53 30 L58 35 L46 47 L38 50 Z" fill="url(#formPencil)" />
+              <path d="M38 50 L41 42 L46 47 Z" fill="#FFD700" />
+            </svg>
+          </span>
           <strong>Player Registration</strong>
+        </button>
+        <button class="home-card" id="homeMomentsBtn">
+          <span class="home-card__icon home-card__icon--moments" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <defs>
+                <linearGradient id="momentFolder" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#FFD700" />
+                  <stop offset="1" stop-color="#f59e0b" />
+                </linearGradient>
+                <linearGradient id="momentPhoto" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#22c55e" />
+                  <stop offset="1" stop-color="#06b6d4" />
+                </linearGradient>
+              </defs>
+              <path d="M8 19 H26 L31 25 H56 V50 H8 Z" fill="url(#momentFolder)" />
+              <rect x="18" y="28" width="34" height="22" rx="5" fill="#071229" opacity="0.58" />
+              <rect x="21" y="31" width="28" height="16" rx="3" fill="url(#momentPhoto)" />
+              <circle cx="41" cy="36" r="4" fill="#fff3a0" />
+              <path d="M22 47 L32 38 L38 44 L43 40 L50 47 Z" fill="#fef9c3" />
+            </svg>
+          </span>
+          <strong>ETL Moments</strong>
         </button>
       </section>
       <p class="home-note">Admin access is password protected. View auction and registration are public.</p>
+    </main>
+
+    <main class="settings-layout view" id="momentsView">
+      <section class="panel moments-board">
+        <h2>ETL Moments</h2>
+        <div class="moments-folder-list" id="momentsDisplayList">
+          <div class="empty">No ETL moments added yet.</div>
+        </div>
+      </section>
     </main>
 
     <main class="main view" id="auctionView">
@@ -2118,7 +2318,7 @@
             <button class="btn-neutral" data-increment="5000">+5K</button>
           </div>
           <div class="action-grid">
-            <button class="btn-neutral deduct-btn" id="deductBidBtn" title="Deduct 1,000">↶ -1K</button>
+            <button class="btn-neutral deduct-btn" id="deductBidBtn" title="Deduct 1,000">&#8634; -1K</button>
             <button class="btn-danger" id="soldBtn">Mark Sold</button>
             <button class="btn-neutral" id="unsoldBtn">Mark Unsold</button>
             <button class="btn-neutral" id="nextPlayerBtn">Next Player</button>
@@ -2128,7 +2328,7 @@
         <section class="panel old-bid-controls">
           <h2>Bid Controls</h2>
           <div class="quick-bids">
-            <button class="btn-neutral deduct-btn" id="oldDeductBidBtn" title="Deduct 1,000">↶</button>
+            <button class="btn-neutral deduct-btn" id="oldDeductBidBtn" title="Deduct 1,000">&#8634;</button>
             <button class="btn-neutral" data-increment="1000">+1000</button>
             <button class="btn-neutral" data-increment="2000">+2000</button>
             <button class="btn-neutral" data-increment="5000">+5000</button>
@@ -2383,6 +2583,54 @@
 
       <section class="settings-group">
         <div class="settings-group__title">
+          <span>ETL Moments</span>
+          <button class="settings-toggle" type="button" aria-expanded="false">+</button>
+        </div>
+        <div class="settings-panel">
+          <div class="moment-settings-block">
+            <h3>Add Photos</h3>
+            <div class="compact-fields">
+              <label>
+                Upload photos
+                <input type="file" id="momentPhotosInput" accept="image/*" multiple />
+              </label>
+            </div>
+            <div class="actions">
+              <button class="btn-primary" id="addMomentPhotosBtn">Add Photos</button>
+            </div>
+          </div>
+
+          <div class="moment-settings-block">
+            <h3>Add Folders</h3>
+            <div class="compact-fields">
+              <label>
+                New folder name
+                <input type="text" id="momentFolderName" placeholder="Season 9 Finals" autocomplete="off" />
+              </label>
+              <label>
+                Existing folder
+                <select id="momentFolderSelect">
+                  <option value="">Create new folder</option>
+                </select>
+              </label>
+              <label>
+                Add photos to folder
+                <input type="file" id="momentFolderPicturesInput" accept="image/*" multiple />
+              </label>
+            </div>
+            <div class="actions">
+              <button class="btn-primary" id="addMomentFolderBtn">Save Folder</button>
+            </div>
+          </div>
+
+          <div class="moments-editor-list" id="momentsEditorList">
+            <div class="empty">No ETL moments added yet.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-group">
+        <div class="settings-group__title">
           <span>Admin Security</span>
           <button class="settings-toggle" type="button" aria-expanded="false">+</button>
         </div>
@@ -2591,6 +2839,10 @@
         tagline: "",
         image: ""
       },
+      etlMoments: {
+        folders: [],
+        images: []
+      },
       adminCredentials: {
         username: "admin",
         password: "1234"
@@ -2615,12 +2867,15 @@
       basePrice: DEFAULT_PLAYER_BASE_PRICE,
       leadingTeam: "",
       status: "Waiting",
+      lastAuctionAnimation: null,
       history: []
     };
 
     let auctionState = { ...defaultState };
     let adminUnlocked = false;
     let pendingAdminTab = "auction";
+    let lastSeenAuctionAnimationId = "";
+    let animationReady = false;
 
     const playerInput = document.getElementById("playerInput");
     const playerNumberInput = document.getElementById("playerNumberInput");
@@ -2665,6 +2920,7 @@
     const settingsView = document.getElementById("settingsView");
     const playersView = document.getElementById("playersView");
     const teamsView = document.getElementById("teamsView");
+    const momentsView = document.getElementById("momentsView");
     const homeTabBtn = document.getElementById("homeTabBtn");
     const publicAuctionTabBtn = document.getElementById("publicAuctionTabBtn");
     const publicTeamsTabBtn = document.getElementById("publicTeamsTabBtn");
@@ -2727,6 +2983,7 @@
     const homeAdminBtn = document.getElementById("homeAdminBtn");
     const homeAuctionBtn = document.getElementById("homeAuctionBtn");
     const homeRegistrationBtn = document.getElementById("homeRegistrationBtn");
+    const homeMomentsBtn = document.getElementById("homeMomentsBtn");
     const designerTeamName = document.getElementById("designerTeamName");
     const designerCollabLine = document.getElementById("designerCollabLine");
     const designerContact = document.getElementById("designerContact");
@@ -2748,8 +3005,17 @@
     const downloadPlayersPdfBtn = document.getElementById("downloadPlayersPdfBtn");
     const downloadPublicPlayersExcelBtn = document.getElementById("downloadPublicPlayersExcelBtn");
     const downloadPublicPlayersPdfBtn = document.getElementById("downloadPublicPlayersPdfBtn");
+    const momentPhotosInput = document.getElementById("momentPhotosInput");
+    const addMomentPhotosBtn = document.getElementById("addMomentPhotosBtn");
+    const momentFolderName = document.getElementById("momentFolderName");
+    const momentFolderSelect = document.getElementById("momentFolderSelect");
+    const momentFolderPicturesInput = document.getElementById("momentFolderPicturesInput");
+    const addMomentFolderBtn = document.getElementById("addMomentFolderBtn");
+    const momentsEditorList = document.getElementById("momentsEditorList");
+    const momentsDisplayList = document.getElementById("momentsDisplayList");
     const soldCelebration = document.getElementById("soldCelebration");
     let pulseSoldSort = "latest";
+    let activeMomentFolderId = "";
     const basePlayerFields = [
       { key: "serial", label: "Serial no." },
       { key: "name", label: "Player name" },
@@ -3029,6 +3295,34 @@
       };
     }
 
+    function cleanMomentFolders(folders) {
+      return Array.isArray(folders)
+        ? folders.map((folder) => ({
+          id: folder.id || createId(),
+          name: String(folder.name || "ETL Moments").trim(),
+          images: Array.isArray(folder.images)
+            ? folder.images.map((image) => String(image || "")).filter((image) => safeImage(image))
+            : []
+        })).filter((folder) => folder.name || folder.images.length)
+        : [];
+    }
+
+    function cleanMoments(raw) {
+      if (Array.isArray(raw)) {
+        return {
+          folders: cleanMomentFolders(raw),
+          images: []
+        };
+      }
+
+      return {
+        folders: cleanMomentFolders(raw?.folders),
+        images: Array.isArray(raw?.images)
+          ? raw.images.map((image) => String(image || "")).filter((image) => safeImage(image))
+          : []
+      };
+    }
+
     function normalizeTeamName(value) {
       return String(value || "").trim().toLowerCase();
     }
@@ -3189,6 +3483,19 @@
         reader.onerror = reject;
         reader.readAsDataURL(file);
       });
+    }
+
+    function readImageFiles(input) {
+      const files = Array.from(input?.files || []);
+      return Promise.all(files.map((file) => {
+        if (!file || !file.type.startsWith("image/")) return Promise.resolve("");
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result || ""));
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      })).then((images) => images.filter(Boolean));
     }
 
     function parseCsvRows(text) {
@@ -3991,6 +4298,86 @@
       }).join("");
     }
 
+    function renderMoments() {
+      const moments = cleanMoments(auctionState.etlMoments);
+      const renderPictures = (images, editable = false) => `
+        <article class="moments-folder moments-folder--pictures">
+          <div class="designer-modal__header">
+            <h3>Pictures</h3>
+          </div>
+          <div class="moments-grid">
+            ${images.map((image, index) => `
+              <div class="moment-image-wrap">
+                <img src="${safeImage(image)}" alt="ETL moment ${index + 1}" />
+                ${editable ? `<button class="btn-danger" data-moment-action="delete-standalone-image" data-moment-image-index="${index}">Delete</button>` : ""}
+              </div>
+            `).join("")}
+          </div>
+        </article>
+      `;
+      const renderFolderTile = (folder) => `
+        <button class="moment-folder-tile" type="button" data-moment-open-folder="${escapeHtml(folder.id)}">
+          <span class="moment-folder-tile__icon" aria-hidden="true">&#128193;</span>
+          <strong>${escapeHtml(folder.name)}</strong>
+          <span>${folder.images.length} photo${folder.images.length === 1 ? "" : "s"}</span>
+        </button>
+      `;
+      const renderFolder = (folder, editable = false) => `
+        <article class="moments-folder" data-moment-folder-id="${escapeHtml(folder.id)}">
+          <div class="designer-modal__header">
+            <h3>${escapeHtml(folder.name)}</h3>
+            ${editable ? `<button class="btn-danger" data-moment-action="delete-folder">Delete Folder</button>` : ""}
+          </div>
+          <div class="moments-grid">
+            ${folder.images.map((image, index) => `
+              <div class="moment-image-wrap">
+                <img src="${safeImage(image)}" alt="${escapeHtml(folder.name)} moment ${index + 1}" />
+                ${editable ? `<button class="btn-danger" data-moment-action="delete-image" data-moment-image-index="${index}">Delete</button>` : ""}
+              </div>
+            `).join("") || '<div class="empty">No pictures in this folder yet.</div>'}
+          </div>
+        </article>
+      `;
+      const activeFolder = moments.folders.find((folder) => folder.id === activeMomentFolderId);
+      if (activeMomentFolderId && !activeFolder) activeMomentFolderId = "";
+
+      const displayMarkup = activeFolder
+        ? `
+          <article class="moments-folder">
+            <div class="designer-modal__header">
+              <h3>${escapeHtml(activeFolder.name)}</h3>
+              <button class="btn-neutral" type="button" data-moment-back>Back</button>
+            </div>
+            <div class="moments-grid">
+              ${activeFolder.images.map((image, index) => `
+                <div class="moment-image-wrap">
+                  <img src="${safeImage(image)}" alt="${escapeHtml(activeFolder.name)} moment ${index + 1}" />
+                </div>
+              `).join("") || '<div class="empty">No pictures in this folder yet.</div>'}
+            </div>
+          </article>
+        `
+        : [
+          moments.images.length ? renderPictures(moments.images) : "",
+          moments.folders.length ? `<div class="moments-grid">${moments.folders.map((folder) => renderFolderTile(folder)).join("")}</div>` : ""
+        ].filter(Boolean).join("");
+      const editorMarkup = [
+        moments.images.length ? renderPictures(moments.images, true) : "",
+        ...moments.folders.map((folder) => renderFolder(folder, true))
+      ].filter(Boolean).join("");
+      momentFolderSelect.innerHTML = [
+        '<option value="">Create new folder</option>',
+        ...moments.folders.map((folder) => `<option value="${escapeHtml(folder.id)}">${escapeHtml(folder.name)}</option>`)
+      ].join("");
+
+      momentsDisplayList.innerHTML = displayMarkup
+        ? displayMarkup
+        : '<div class="empty">No ETL moments added yet.</div>';
+      momentsEditorList.innerHTML = editorMarkup
+        ? editorMarkup
+        : '<div class="empty">No ETL moments added yet.</div>';
+    }
+
     function renderPlayerCustomFieldsForm() {
       const fields = cleanPlayerFields(auctionState.playerFields);
       const fieldIntroMarkup = (field) => {
@@ -4212,6 +4599,7 @@
 
     function renderUI() {
       renderFooter();
+      renderMoments();
       renderTournament();
       const selectedTeamBeforeRender = teamInput.value;
       renderTeamOptions();
@@ -4241,6 +4629,7 @@
       renderPublicPlayerList();
       renderSettings();
       renderPlayerSettings();
+      renderAuctionAnimation();
       if (selectedTeamBeforeRender && cleanTeams(auctionState.teams).some((team) => team.name === selectedTeamBeforeRender)) {
         teamInput.value = selectedTeamBeforeRender;
       }
@@ -4251,6 +4640,20 @@
       [soldBtn, unsoldBtn, deductBidBtn, ...document.querySelectorAll("[data-increment]")].forEach((button) => {
         button.disabled = !hasCurrentPlayer;
       });
+    }
+
+    function renderAuctionAnimation() {
+      const animation = auctionState.lastAuctionAnimation || {};
+      if (!animationReady) {
+        lastSeenAuctionAnimationId = animation.id || "";
+        animationReady = true;
+        return;
+      }
+      if (!animation.id) return;
+      if (animation.id === lastSeenAuctionAnimationId) return;
+      lastSeenAuctionAnimationId = animation.id;
+      if (animation.status === "SOLD") showSoldCelebration();
+      if (animation.status === "UNSOLD") showUnsoldAnimation();
     }
 
     function updateAuctionState(updates) {
@@ -4268,7 +4671,7 @@
     function showSoldCelebration() {
       soldCelebration.classList.remove("unsold");
       soldCelebration.innerHTML = '<div class="sold-celebration__text">SOLD</div>';
-      const colors = ["#ffdf7a", "#ef4444", "#60a5fa", "#ffffff", "#f59e0b"];
+      const colors = ["#FFD700", "#ef4444", "#60a5fa", "#ffffff", "#FFD700"];
 
       for (let i = 0; i < 90; i += 1) {
         const piece = document.createElement("div");
@@ -4290,7 +4693,7 @@
       soldCelebration.classList.remove("unsold");
       soldCelebration.classList.add("registration-success");
       soldCelebration.innerHTML = '<div class="registration-success__text">REGISTRATION SUCCESSFUL</div>';
-      const colors = ["#ffdf7a", "#ef4444", "#60a5fa", "#ffffff", "#f59e0b"];
+      const colors = ["#FFD700", "#ef4444", "#60a5fa", "#ffffff", "#FFD700"];
 
       for (let i = 0; i < 110; i += 1) {
         const piece = document.createElement("div");
@@ -4312,7 +4715,7 @@
       soldCelebration.classList.add("unsold");
       soldCelebration.innerHTML = `
         <div class="unsold-animation">
-          <div class="sad-face">☹</div>
+          <div class="sad-face">â˜¹</div>
           <strong>UNSOLD</strong>
         </div>
       `;
@@ -4340,16 +4743,16 @@
         finishedAt: new Date().toISOString()
       };
 
-      if (status === "SOLD") {
-        showSoldCelebration();
-      } else if (status === "UNSOLD") {
-        showUnsoldAnimation();
-      }
-
       const history = cleanHistory([...(auctionState.history || []), result]);
       updateAuctionState({
         status,
-        history
+        history,
+        lastAuctionAnimation: {
+          id: result.id,
+          status,
+          player: result.player,
+          at: result.finishedAt
+        }
       }).then(() => selectRandomNextPlayer(history));
     }
 
@@ -4371,6 +4774,7 @@
           playerFields: cleanPlayerFields(data.playerFields),
           hiddenPlayerBaseFields: cleanHiddenBaseFields(data.hiddenPlayerBaseFields),
           playerFormSettings: cleanPlayerFormSettings(data.playerFormSettings),
+          etlMoments: cleanMoments(data.etlMoments),
           adminCredentials: cleanAdminCredentials(data.adminCredentials),
           designerDetails: cleanDesignerDetails(data.designerDetails)
         };
@@ -4396,18 +4800,22 @@
       const isSettings = tabName === "settings";
       const isPlayers = tabName === "players";
       const isRegistration = tabName === "registration";
+      const isMoments = tabName === "moments";
       const isHome = tabName === "home";
       const isViewAuction = tabName === "viewAuction";
       const isPublicTeams = tabName === "publicTeams";
+      if (isMoments) activeMomentFolderId = "";
       document.body.classList.toggle("home-page", isHome);
       document.body.classList.toggle("public-auction", isViewAuction);
       document.body.classList.toggle("public-teams", isPublicTeams);
+      document.body.classList.toggle("moments-page", isMoments);
       document.body.classList.toggle("registration-page", isRegistration);
       document.body.classList.toggle("admin-page", ["auction", "teams", "players", "settings"].includes(tabName));
       homeView.classList.toggle("active", isHome);
       auctionView.classList.toggle("active", isViewAuction || isAuction);
       teamsView.classList.toggle("active", isTeams || isPublicTeams);
       registrationView.classList.toggle("active", isRegistration);
+      momentsView.classList.toggle("active", isMoments);
       playersView.classList.toggle("active", isPlayers);
       settingsView.classList.toggle("active", isSettings);
       homeTabBtn.classList.toggle("active", isHome);
@@ -4419,6 +4827,7 @@
       playersTabBtn.classList.toggle("active", isPlayers);
       settingsTabBtn.classList.toggle("active", isSettings);
       if (isRegistration) refreshRegistrationSerial();
+      if (isMoments) renderMoments();
       renderPulseDetail(document.querySelector(".pulse-metric.active")?.dataset.pulseCategory || "all");
       renderPublicPlayerList();
     }
@@ -4447,6 +4856,7 @@
     homeAdminBtn.addEventListener("click", () => setActiveTab("auction"));
     homeAuctionBtn.addEventListener("click", () => setActiveTab("viewAuction"));
     homeRegistrationBtn.addEventListener("click", () => setActiveTab("registration"));
+    homeMomentsBtn.addEventListener("click", () => setActiveTab("moments"));
 
     adminLoginBtn.addEventListener("click", () => {
       const credentials = cleanAdminCredentials(auctionState.adminCredentials);
@@ -4674,6 +5084,86 @@
         maxSlots: TEAM_PLAYER_SLOTS
       });
       updateAuctionState({ teams });
+    });
+
+    addMomentPhotosBtn.addEventListener("click", async () => {
+      const images = await readImageFiles(momentPhotosInput);
+      if (!images.length) return;
+
+      const moments = cleanMoments(auctionState.etlMoments);
+      moments.images = [...moments.images, ...images];
+      momentPhotosInput.value = "";
+      updateAuctionState({ etlMoments: cleanMoments(moments) });
+    });
+
+    addMomentFolderBtn.addEventListener("click", async () => {
+      const name = momentFolderName.value.trim();
+      const selectedFolderId = momentFolderSelect.value;
+      const images = await readImageFiles(momentFolderPicturesInput);
+      const moments = cleanMoments(auctionState.etlMoments);
+      if (!name && !selectedFolderId) return;
+
+      if (selectedFolderId) {
+        const folderIndex = moments.folders.findIndex((folder) => folder.id === selectedFolderId);
+        if (folderIndex === -1) return;
+        moments.folders[folderIndex].images = [...moments.folders[folderIndex].images, ...images];
+      } else {
+        const existingIndex = moments.folders.findIndex((folder) => folder.name.toLowerCase() === name.toLowerCase());
+        if (existingIndex >= 0) {
+          moments.folders[existingIndex].images = [...moments.folders[existingIndex].images, ...images];
+        } else {
+          moments.folders.push({ id: createId(), name, images });
+        }
+      }
+
+      momentFolderName.value = "";
+      momentFolderSelect.value = "";
+      momentFolderPicturesInput.value = "";
+      updateAuctionState({ etlMoments: cleanMoments(moments) });
+    });
+
+    momentsDisplayList.addEventListener("click", (event) => {
+      const backButton = event.target.closest("[data-moment-back]");
+      if (backButton) {
+        activeMomentFolderId = "";
+        renderMoments();
+        return;
+      }
+
+      const folderButton = event.target.closest("[data-moment-open-folder]");
+      if (!folderButton) return;
+      activeMomentFolderId = folderButton.dataset.momentOpenFolder || "";
+      renderMoments();
+    });
+
+    momentsEditorList.addEventListener("click", (event) => {
+      const actionButton = event.target.closest("[data-moment-action]");
+      if (!actionButton) return;
+
+      const moments = cleanMoments(auctionState.etlMoments);
+      if (actionButton.dataset.momentAction === "delete-standalone-image") {
+        const imageIndex = Number(actionButton.dataset.momentImageIndex);
+        if (Number.isInteger(imageIndex)) moments.images.splice(imageIndex, 1);
+        updateAuctionState({ etlMoments: cleanMoments(moments) });
+        return;
+      }
+
+      const folderElement = actionButton.closest("[data-moment-folder-id]");
+      const folderId = folderElement?.dataset.momentFolderId;
+      const folderIndex = moments.folders.findIndex((folder) => folder.id === folderId);
+      if (folderIndex === -1) return;
+
+      if (actionButton.dataset.momentAction === "delete-folder") {
+        moments.folders.splice(folderIndex, 1);
+        updateAuctionState({ etlMoments: cleanMoments(moments) });
+        return;
+      }
+
+      if (actionButton.dataset.momentAction === "delete-image") {
+        const imageIndex = Number(actionButton.dataset.momentImageIndex);
+        if (Number.isInteger(imageIndex)) moments.folders[folderIndex].images.splice(imageIndex, 1);
+        updateAuctionState({ etlMoments: cleanMoments(moments) });
+      }
     });
 
     savePlayerBtn.addEventListener("click", async () => {
@@ -5114,3 +5604,4 @@
   </script>
 </body>
 </html>
+
